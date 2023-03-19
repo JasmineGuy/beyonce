@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <script type="text/javascript" src="data.js"></script>
+      <script src="https://d3js.org/d3.v6.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="styles.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@300;600&family=Source+Serif+Pro:wght@300;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+      <div class="line"></div>
+      <div class="sticky">
+        <audio id="player" controls loop src=""></audio>
+      </div>
+      <span class="title">Bey is for Bars</span>
+      <br/>
+      <span class="subtitle">Is Beyoncé <strong class="highlight">Secretly </strong>a Rapper?</span>
+      <h4>a TWO-N Project</h4>
+      <p class="text">There is no arguing that Beyoncé is a wildly accomplished singer, songwriter and performer. She's got a hoard of GRAMMYs to prove it, and a hive-full of fans who rightfully adore her. But would you -or anyone you know - call her a rapper? </p>
+
+      <!-- ADD INTRO BLURB -->
+      <p>I had two pressing questions that warranted investigation:
+        <ol>
+          <strong>
+            <li>Is Beyoncé a rapper? In other words: Did she sneak a rap crossover in under our noses? </li>
+            <li>Is her rap music more or less popular?</ol> </li>
+          </strong>
+      </p>
+    <div> I listened to her entire body of work to make a determination.</div>
+      <div class="line"></div>
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"> <strong>How to read:</strong> Studio albums are plotted over time. Each ring around an album represents a track which features Beyoncé rapping. Ex. 2 Rings = 2 rap features. Music notes represent singles.</p>
+          <p class="subscript"> <strong>How to interact:</strong> Select a metric to compare Beyoncé albums/songs over time. Hover for additional details. Click a track or single to play a 30-second sample (courtesy of Spotify). To stop playback, click again, or use audio controls which will scroll as you do.</p>
+          <p class="subscript"><i>Note: The <strong> spotify popularity</strong> of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based on the total number of plays the track has had and how recent those plays are. <strong>Album popularity</strong> is derived mathematically from track popularity</i></p>
+          <p class="subscript"><i>Note: <strong> Percent Rap</strong> of the album is found by dividing the number of tracks featuring Beyoncé rapping by the total number of tracks on the album. Percent rap metrics don't exist for individual songs.</p>
+        </div>
+      </div>
+      <span class="subtitle">Beyoncé Raps Per Album</span>
+      <div class="flex">
+        <div id="container">
+          <div class="legend-wrapper">
+            <form class="form">
+              <label class="label">Select a Metric</label>
+              <select id="albumMetric" class="dropDown" onChange="updateAlbums()">
+                <option class="option" value="popularity">Spotify Popularity</option>
+                <option class="option" value="grammys">Grammy Wins</option>
+                <option class="option" value="percent">Percent Rap</option>
+              </select>
+            </form>
+            <div class="group">
+              <div class="legend-item">
+                <div class="legend-circle"></div>
+                <div class="legend-label">Album</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-ring"></div>
+                <div class="legend-label">Track</div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltip"></div>
+        </div>
+        <div class="block">
+          <ul class="stats">
+            <li>The number of <strong class="highlight">rapped tracks per album has generally increased over time</strong></li>
+            <li>Over <strong class="highlight">65% of tracks</strong> in each of her last two albums featured Beyoncé rapping </li>
+            <li><strong class="highlight">13 of 22 GRAMMY wins</strong> came from albums featuring less rap</li>
+            <li> <strong class="highlight">Renaissance is her most popular album on Spotify - and it won 4 GRAMMYs.</strong> Making it an interesting anomaly </li>
+            <li>Everything is Love, is not very popular. <strong class="highlight">Jay-Z is not pulling his weight</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"> <i> <strong>Sources:</strong> Spotify Web API, GRAMMY.com.</i></p>
+        </div>
+      </div>
+
+      <span class="subtitle">Other Times Beyoncé was Featured as a Rapper</span>
+      <p>If dedicating over 65% of the songs on an album to doesn't merit being acknowledged as a rapper, could you be persuaded to examine songs which were <i>not</i> released on studio albums that <i>also</i> feature Beyoncé rapping? Well here's your chance. This is the same chart and the same timeline, overlaid with lesser-known instances of Beyoncé rapping.</p>
+      <div class="flex">
+        <div class="block">
+          <ul class="stats">
+            <li>There is a clear pattern of more rap features in the last <strong class="highlight">10 years</strong> between albums and singles</li>
+            <li>Rap features appear to be <strong class="highlight">slightly less popular*</strong> than albums on the whole on Spotify. But perhaps a direct song to song popularity comparison would give a clearer picture</li>
+            <li><strong class="highlight"> As early as 2001</strong> Beyoncé has been able to rap. Maybe this was the secret plan all along?</li>
+            <li> Rap singles are largely unacknowledged by the GRAMMYs. <strong class="highlight">Haters</strong> </li>
+          </ul>
+        </div>
+        <div id="container2">
+          <div class="legend-wrapper">
+            <form class="form">
+              <label class="label">Select a Metric</label>
+              <select id="mixMetric" class="dropDown" onChange="updateMix()">
+                <option class="option" value="popularity">Spotify Popularity</option>
+                <option class="option" value="grammys">Grammy Wins</option>
+                <option class="option" value="percent">Percent Rap</option>
+              </select>
+            </form>
+            <div class="group">
+              <div class="legend-item" id="album2">
+                <div class="legend-circle2"></div>
+                <div class="legend-label">Album</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-ring2"></div>
+                <div class="legend-label">Track</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-note"></div>
+                <div class="legend-label">Single</div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltip2"></div>
+        </div>
+      </div>
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"> <i> <strong>Sources:</strong> Spotify Web API, GRAMMY.com.</i></p>
+        </div>
+      </div>
+
+      <h2>Song to Song Comparison</h2>
+
+      <p>This is every studio album song plotted + rapped singles. I thought it would be interesting to see if rapped songs were more or less popular than non-rapped songs. I also thought it would be clearer whether rapped songs dominated any part of Beyoncé's career timeline. </p>
+
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"><i>Note: <strong> Spotify speechiness</strong> detects the presence of spoken words in a track. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the closer to 1.0 the attribute value. Values above 0.66 describe tracks that are probably made entirely of spoken words. Values between 0.33 and 0.66 describe tracks that may contain both music and speech, either in sections or layered, including such cases as rap music. Values below 0.33 most likely represent music and other non-speech-like tracks.</p>
+        </div>
+      </div>
+      <div class="flex">
+        <div id="container3">
+          <div class="legend-wrapper">
+            <form class="form">
+              <label class="label">Select a Metric</label>
+              <select id="songMetric" class="dropDown" onChange="updateSongs()">
+                <option class="option" value="popularity">Spotify Popularity</option>
+                <!-- <option class="option" value="grammys">Grammy Wins</option> -->
+                <option class="option" value="speech">Spotify Speechiness</option>
+              </select>
+            </form>
+            <div class="group">
+              <div class="legend-item">
+                <div class="legend-note2"></div>
+                <div class="legend-label"> Not Rapped</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-note"></div>
+                <div class="legend-label">Rapped</div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltip3"></div>
+        </div>
+        <div class="block">
+          <ul class="stats">
+            <li>The pattern of more rap features in the last 10 years <strong class="highlight">holds</strong> in a song-to-song comparison</li>
+            <li>Rapped songs are <strong class="highlight">not inherently less popular</strong></li>
+            <li> Ring the Alarm is one of the most "speechy" songs on the chart, but it is a song that toes the line between singing and rap(as many of her songs do). And her songs that include rap often include lots of singing. <strong class="highlight">Speechy* songs defy expectation</strong> </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"> <i> <strong>Sources:</strong> Spotify Web API, GRAMMY.com.</i></p>
+        </div>
+      </div>
+      <span class="subtitle">Another Way to Determine Popularity</span>
+      <p>Spotify popularity* takes recency of a stream into account.  Theoretically a more recent album will be higher ranked in popularity. While that ultimately shows whether music stands the test of time, I was curious to see if how my questions would be answered using another metric for popularity. So I looked into Billboard Hot 100 data. I asked the same questions: Is Beyoncé a rapper? Are rap songs more or less popular? </p>
+      <div class="flex">
+        <div class="block">
+          <ul class="stats">
+            <li>The pattern of more rap features in the last 10 years <strong class="highlight">holds</strong> on the Billboard Charts</li>
+            <li>As more rap selections creep into the timeline, <strong class="highlight">fewer songs hold top 10 positions</strong> </li>
+            <li>Songs from<strong class="highlight"> <i>Lemonade</i> and <i>Renaissance</i></strong> all debut and peak as clusters - a response to surprise releases, perhaps?</li>
+            <li> Beyoncé has had a substantial presence on the Billboard Hot 100 for the last 20 years and shows no signs of stopping. <strong class="highlight">Beyoncé IS the bar.</strong> </li>
+          </ul>
+        </div>
+        <div id="container4">
+          <div class="legend-wrapper2">
+            <div class="form"></div>
+            <div class="group">
+              <div class="legend-item">
+                <div class="legend-note2"></div>
+                <div class="legend-label">Not Rapped</div>
+              </div>
+              <div class="legend-item">
+                <div class="legend-note"></div>
+                <div class="legend-label">Rapped</div>
+              </div>
+            </div>
+          </div>
+          <div class="tooltip4"></div>
+        </div>
+
+      </div>
+      <div class="instructions-holder">
+        <div class="instructions">
+          <p class="subscript"> <i> <strong>Sources:</strong>
+              Spotify Web API,
+            <a href="https://github.com/HipsterVizNinja/random-data/tree/main/Music/hot-100">HipsterVizNinja's Billboard Hot 100 List</a></i>
+          </p>
+        </div>
+      </div>
+      </div>
+      <span class="subtitle">Conclusion</span>
+      <!-- <div class="line"></div> -->
+      <p>Queen Bey is clearly leaning into rap as a form of personal expression. The ability to do so has evidently been there since at least 2001 (in MTVs Carmen: A Hip Hopera), but the volume is certainly cranked lately. I, for one, won't mind if she continues to turn the volume up. As for its effect on her popularity, the jury is still out. With Renaissance breaking streaming records and being comprised of her most rap tracks to date, we have to wait and see. But if Renaissance act II is a full rap album, don't say you weren't warned. Either way we're lucky to be living in a time when Beyoncé is Beyoncé-ing this hard. </p>
+      <script type="text/javascript" src="main.js"></script>
+    </body>
+    <div class="line"></div>
+    <footer>I am a footer placeholder. Lalalalalalalalallalala</footer>
+</html>
