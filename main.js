@@ -557,7 +557,6 @@ const drawSongs = (refinedSongs, metric) => {
           .style("fill", (d) => d.rap ? plotColor : "#ff477e")
           .style("opacity", 0.6)
           .on("mouseover", (evt, d) => {
-            console.log(d)
             const tooltipText3 = `
             <strong>${d.name}</strong>
             <span>${d.label}: ${d.metric} </span>

@@ -485,7 +485,7 @@ footer {
   position: relative;
   display: inline-block;
   width: 12px;
-  height: 32px;
+  height: 30px;
   top: 10px;
   opacity: .6;
 }
@@ -498,21 +498,21 @@ footer {
 
 .quarter-note::after {
   content: "";
-  height: 28px;
+  height: 25px;
   width: 1px;
   background-color: #ff477e;
   position: absolute;
-  top: -24px;
+  top: -20px;
   right: 2px;
 }
 
 .quarter-note-rap::after {
   content: "";
-  height: 28px;
+  height: 25px;
   width: 1px;
   background-color: rgb(81, 170, 232);
   position: absolute;
-  top: -24px;
+  top: -20px;
   right: 2px;
 }
 .quarter-note::before,
@@ -529,4 +529,8 @@ footer {
 
 .quarter-note-rap::before {
   background-color: rgb(81, 170, 232);
+}
+
+.conclusion {
+  font-style: normal;
 }
