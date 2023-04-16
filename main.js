@@ -413,7 +413,28 @@ const drawMixed = (updatedData, metric) => {
       (update) => {
         update.call(g => g.select('circle.center')
           .on("mouseover", (evt, d) => {
-              const tooltipText2 = d.album ? `
+            const tooltipText2 = d.album
+              ? `
+              <strong>${d.name}</strong>
+              <img class='profile' src='${d.album_art.src}'>
+              <span>Tracks Rapped: ${d.info.length}</span>
+              <span>${d.label}: ${d.metric} </span>
+              <span>Year: ${getDisplayDate(d.release_date)}</span>`
+                : `<strong> Single: ${d.name}</strong>
+                  <span>${d.label}: ${d.metric} </span>
+                  <span>Year: ${getDisplayDate(d.release_date)}</span>`;
+              tooltip2
+              .style("top", `${evt.pageY - 75}px`)
+              .style("left", `${evt.pageX - 30}px`)
+                .style("opacity", 1)
+                .html(tooltipText2);
+            })
+          .on("mouseout", () => tooltip2.text("").style("opacity", 0))
+        )
+        update.call(g => g.select('circle.music')
+          .on("mouseover", (evt, d) => {
+            const tooltipText2 = d.album
+              ? `
               <strong>${d.name}</strong>
               <img class='profile' src='${d.album_art.src}'>
               <span>Tracks Rapped: ${d.info.length}</span>
