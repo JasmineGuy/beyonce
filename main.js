@@ -30,9 +30,19 @@ const getStemPosition = (d, i) =>  {
   const result = songDate.setDate(songDate.getDate() + addedDays);
   return result;
 }
+const player = document.getElementById('player')
 
+player.onpause = function () {
+  const allElements = document.querySelectorAll('*');
+  allElements.forEach((element) => {
+    element.classList.remove('reverb')
+    element.classList.remove('pulsing')
+    element.classList.remove('playing')
+  })
+
+
+}
 const clicked = (event, d) => {
-  const player = document.getElementById('player');
   const currentRing = document.querySelector(".reverb")
   const currentAlbum = document.querySelector(".pulsing")
   let selected;
