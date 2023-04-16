@@ -2,7 +2,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/8/84/Dangerously_In_Love_Album%282003%29.png",
+      src: "/assets/DIL.png",
       alt: "Dangerously in Love Album Cover Art"
     },
     name: "Dangerously In Love",
@@ -15,7 +15,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/c/c4/Beyonc%C3%A9_-_B%27Day.png",
+      src: "/assets/BDAY.png",
       alt: "B'Day Album Cover Art"
     },
     name: "B'Day",
@@ -39,7 +39,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/9/96/I_Am..._Sasha_Fierce.png",
+      src: "/assets/SASHA.png",
       alt: "I Am Sasha Fierce Album Cover Art"
     },
     name: "I Am...Sasha Fierce",
@@ -63,7 +63,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/c/ca/Beyonc%C3%A9_-_4.png",
+      src: "/assets/4.png",
       alt: "4 Album Cover Art"
     },
     name: "4",
@@ -76,7 +76,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/80/Beyonc%C3%A9PlatinumEditionCover.png",
+      src: "/assets/Beyonce.png",
       alt: "Beyonce Album Cover Art"
     },
     name: "BEYONCE",
@@ -115,7 +115,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+      src: "/assets/Lemonade.png",
       alt: "Lemonade Album Cover Art"
     },
     name: "Lemonade",
@@ -149,7 +149,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/a/ad/Beyonc%C3%A9_-_Renaissance.png",
+      src: "/assets/RENAISSANCE.png",
       alt: "Renaissance Album Cover Art"
     },
     name: "Renaissance act I",
@@ -218,7 +218,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/3/3d/The_Carters_-_Everything_Is_Love_%28Official_Album_Cover%29.png",
+      src: "/assets/CARTERS.png",
       alt: "Everything Is Love Album Cover Art"
     },
     name: "Everything Is Love",
@@ -265,7 +265,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/8/84/Dangerously_In_Love_Album%282003%29.png",
+      src: "/assets/DIL.png",
       alt: "Dangerously in Love Album Cover Art"
     },
     name: "Dangerously In Love",
@@ -279,7 +279,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/c/c4/Beyonc%C3%A9_-_B%27Day.png",
+      src: "/assets/BDAY.png",
       alt: "B'Day Album Cover Art"
     },
     name: "B'Day Deluxe Edition",
@@ -304,7 +304,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/9/96/I_Am..._Sasha_Fierce.png",
+      src: "/assets/SASHA.png",
       alt: "I Am Sasha Fierce Album Cover Art"
     },
     name: "I Am...Sasha Fierce",
@@ -330,7 +330,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/c/ca/Beyonc%C3%A9_-_4.png",
+      src: "/assets/4.png",
       alt: "4 Album Cover Art"
     },
     name: "4",
@@ -344,7 +344,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/commons/8/80/Beyonc%C3%A9PlatinumEditionCover.png",
+      src: "/assets/Beyonce.png",
       alt: "Beyonce Album Cover Art"
     },
     name: "Beyonce",
@@ -384,7 +384,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/5/53/Beyonce_-_Lemonade_%28Official_Album_Cover%29.png",
+      src: "/assets/Lemonade.png",
       alt: "Lemonade Album Cover Art"
     },
     name: "Lemonade",
@@ -419,7 +419,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/a/ad/Beyonc%C3%A9_-_Renaissance.png",
+      src: "/assets/RENAISSANCE.png",
       alt: "Renaissance Album Cover Art"
     },
     name: "Renaissance act I",
@@ -489,7 +489,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/3/3d/The_Carters_-_Everything_Is_Love_%28Official_Album_Cover%29.png",
+      src: "/assets/CARTERS.png",
       alt: "Everything Is Love Album Cover Art"
     },
     name: "Everything Is Love",
@@ -533,10 +533,6 @@ allData = [
   },
   {
     album: false,
-    album_art: {
-      src: "https://upload.wikimedia.org/wikipedia/en/3/3d/The_Carters_-_Everything_Is_Love_%28Official_Album_Cover%29.png",
-      alt: "Test"
-    },
     name: "If Looks Could Kill(You'd Be Dead)",
     src: "https://audio-ssl.itunes.apple.com/itunes-assets/Music/35/92/9b/mzm.izaqaaid.aac.p.m4a",
     release_date: "2001-06-21T00:00:00",
@@ -544,7 +540,7 @@ allData = [
     popularity: 0,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -559,7 +555,7 @@ allData = [
     popularity: 62,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -571,10 +567,10 @@ allData = [
     src: "https://p.scdn.co/mp3-preview/0a3094925e1a36eb04318e5f4b7fc9447c69008b?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
     release_date: "2020-04-29T00:00:00",
     info: [],
-    popularity: 39,
+    popularity: 65,
     grammys: 1,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -589,7 +585,7 @@ allData = [
     popularity: 50,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -604,7 +600,7 @@ allData = [
     popularity: 46,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -619,7 +615,7 @@ allData = [
     popularity: 54,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -634,7 +630,7 @@ allData = [
     popularity: 48,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -649,7 +645,7 @@ allData = [
     popularity: 48,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -664,7 +660,7 @@ allData = [
     popularity: 51,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -679,7 +675,7 @@ allData = [
     popularity: 51,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   },
   {
     album: false,
@@ -694,7 +690,7 @@ allData = [
     popularity: 71,
     grammys: 0,
     ring: false,
-    percent: 0
+    percent: 100
   }
 ];
 
@@ -1967,7 +1963,7 @@ const songData = [
       name: "Savage Remix - Megan Thee Stallion",
       src: "https://p.scdn.co/mp3-preview/0a3094925e1a36eb04318e5f4b7fc9447c69008b?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
       release_date: "2020-04-29T00:00:00",
-      popularity: 39,
+      popularity: 65,
       grammys: 1,
       speech: 0.28,
       ring: false,

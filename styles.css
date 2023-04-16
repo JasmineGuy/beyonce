@@ -3,7 +3,7 @@ body{
   margin: auto;
   padding: 2em 3em 2em 3em;
   position: relative;
-  font-size: 16px;
+  font-size: 18px;
   background-color: #fff;
   min-width: 700px;
   color: #000;
@@ -12,7 +12,7 @@ body{
 
 @media screen and (max-width: 1430px) {
   body {
-    font-size: 12px;
+    font-size: 18px;
   }
 }
 
@@ -33,13 +33,18 @@ body{
 
 .subscript {
   font-size: 16px;
-  width: 50%;
+  /* width: 50%; */
 }
 
 @media screen and (max-width: 1430px) {
   .subscript {
-    font-size: 12px;
+    font-size: 16px;
   }
+}
+
+.initial-instructions {
+  display: flex;
+  flex-direction: column;
 }
 
 .instructions-wrapper {
@@ -66,9 +71,17 @@ body{
 .block {
   display: flex;
   align-items: center;
-  border: 1px solid lightgray;
-  width: 30%;
-  min-width: 285px;
+  font-size: 18px !important;
+  background-color: rgb(81, 170, 232);
+  color: white;
+  width: 60%;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  padding: 1em;
+  box-shadow: 4px 4px 4px lightgray;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 1430px) {
@@ -80,16 +93,20 @@ body{
 .stats {
   padding-right: 1em;
   line-height: 2em;
+  font-style: normal;
+
 }
 
 .highlight {
-  color: rgb(81, 170, 232);
+  font-style: normal;
+  text-decoration:solid;
 }
 
 .line {
-  height: 2px;
+  height: 5px;
   background-color: rgb(81, 170, 232);
   margin: 1em 0;
+  border-radius: 4px;
 }
 .label {
   padding-right: .5em;
@@ -109,7 +126,7 @@ body{
 }
 
 .legend-wrapper2 {
-  padding: 1em;
+  padding: 1.75em 1em 1em;
   margin-left: 0;
   display: flex;
   justify-content: space-between;
@@ -146,7 +163,7 @@ body{
 }
 
 .legend-circle2 {
-  background: gray;
+  background: rgb(81, 170, 232);
   height: 1em;
   width: 1em;
   border-radius: 50%;
@@ -163,22 +180,7 @@ body{
   height: 1.5em;
   width: 1.5em;
   border-radius: 50%;
-  border: 2px solid gray;
-}
-
-.legend-note   {
-  background: rgb(81, 170, 232);
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-}
-
-.legend-note2   {
-  background: green;
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  opacity: 0.6;
+  border: 2px solid rgb(81, 170, 232);
 }
 
 .sticky {
@@ -201,9 +203,10 @@ body{
   background-color: white;
   border: 1px solid lightgray;
   margin-right: auto;
-  width: 90%;
+  width: 100%;
   height: max-content;
   margin-right: auto;
+  border-radius: 4px;
 }
 
 .viz{
@@ -240,25 +243,6 @@ audio::-webkit-media-controls-panel {
   background: white;
 }
 
-/* .tooltip4,
-.tooltip2,
-.tooltip3 {
-  font-family: 'Source Serif Pro', serif;
-  background: rgb(81, 170, 232);
-  border-radius: 4px;
-  padding: 10px;
-  position: absolute;
-  min-width: 100px;
-  color: #000 !important;
-  opacity: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 4px 4px 4px lightgray;
-  pointer-events: none;
-} */
-
 #container .tooltip {
   bottom: 100%;
   color: #fff;
@@ -277,21 +261,6 @@ audio::-webkit-media-controls-panel {
   box-shadow: 4px 4px 4px lightgray;
   pointer-events: none;
   height: max-content;
-  -webkit-transform: translateY(-10px);
-    -moz-transform: translateY(-10px);
-    -ms-transform: translateY(-10px);
-    -o-transform: translateY(-10px);
-    transform: translateY(-10px);
-  -webkit-transition: all .25s ease-out;
-    -moz-transition: all .25s ease-out;
-    -ms-transition: all .25s ease-out;
-    -o-transition: all .25s ease-out;
-    transition: all .25s ease-out;
-  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
 }
 
 #container2 .tooltip2 {
@@ -311,21 +280,6 @@ audio::-webkit-media-controls-panel {
   box-shadow: 4px 4px 4px lightgray;
   pointer-events: none;
   height: max-content;
--webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
-   transform: translateY(-10px);
--webkit-transition: all .25s ease-out;
-  -moz-transition: all .25s ease-out;
-  -ms-transition: all .25s ease-out;
-  -o-transition: all .25s ease-out;
-  transition: all .25s ease-out;
--webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
 }
 
 #container3 .tooltip3 {
@@ -344,21 +298,6 @@ audio::-webkit-media-controls-panel {
   box-shadow: 4px 4px 4px lightgray;
   pointer-events: none;
   height: max-content;
--webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
-   transform: translateY(-10px);
--webkit-transition: all .25s ease-out;
-  -moz-transition: all .25s ease-out;
-  -ms-transition: all .25s ease-out;
-  -o-transition: all .25s ease-out;
-  transition: all .25s ease-out;
--webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
 }
 
 #container4 .tooltip4 {
@@ -377,21 +316,6 @@ audio::-webkit-media-controls-panel {
   box-shadow: 4px 4px 4px lightgray;
   pointer-events: none;
   height: max-content;
--webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  -ms-transform: translateY(-10px);
-  -o-transform: translateY(-10px);
-   transform: translateY(-10px);
--webkit-transition: all .25s ease-out;
-  -moz-transition: all .25s ease-out;
-  -ms-transition: all .25s ease-out;
-  -o-transition: all .25s ease-out;
-  transition: all .25s ease-out;
--webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
 }
 
 .tooltip .profile {
@@ -409,17 +333,16 @@ border-radius: 4px;
 }
 
 .center:hover {
-cursor: pointer;
-stroke: rgb(81, 170, 232);
-stroke-width: 3px;
-opacity: 1;
+  cursor: pointer;
+  stroke: rgb(81, 170, 232);
+  stroke-width: 3px;
+  opacity: 1;
 }
 
 .altCenter:hover {
   cursor: pointer;
-  stroke: gray;
   stroke-width: 3px;
-  stroke-opacity: 1 !important;
+  stroke: #ff477e;
   opacity: 1;
 }
 
@@ -435,7 +358,7 @@ stroke-width: 2px;
 .music:hover {
   cursor: pointer;
   stroke-width: 3px;
-  stroke: green;
+  stroke: #ff477e;
   opacity: 1;
 }
 
@@ -461,27 +384,27 @@ stroke-width: 2px;
 .playing .music {
   animation: tilt-shaking .75s infinite;
   /* opacity: 1 !important; */
-  fill: red !important;
-  stroke: red !important
+  /* fill: red !important;
+  stroke: red !important */
 }
 .playing .center {
   animation: tilt-shaking .75s infinite;
   /* opacity: 1 !important; */
-  fill: red !important;
-  stroke: red !important
+  /* fill: red !important;
+  stroke: red !important */
 }
 
 .playing .altCenter {
   animation: tilt-shaking .75s infinite;
   /* opacity: 1 !important; */
-  fill: red !important;
-  stroke: red !important
+  /* fill: red !important;
+  stroke: red !important */
 }
 .playing .stem {
   animation: tilt-shaking .75s infinite;
   /* opacity: 1 !important; */
-  fill: red !important;
-  stroke: red !important
+  /* fill: red !important; */
+  /* stroke: red !important */
 }
 
 .dot .pulsing {
@@ -503,7 +426,7 @@ stroke-width: 2px;
 }
 
 .reverb {
-  stroke-width: 05px;
+  stroke-width: 4px;
   opacity: .6 !important;
   position: absolute;
   overflow: visible;
@@ -512,6 +435,11 @@ stroke-width: 2px;
   animation: pulse-me 1s linear infinite;
   stroke-opacity: .6;
   box-shadow: 4px 4px 4px lightgray;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @keyframes pulse-me{
@@ -533,9 +461,9 @@ stroke-width: 2px;
 
  @keyframes tilt-shaking {
   0% { transform: translateY(0) }
-  25% { transform: translateY(5px) }
-  50% { transform: translateY(-5px) }
-  75% { transform: translateY(5px) }
+  25% { transform: translateY(7px) }
+  50% { transform: translateY(-7px) }
+  75% { transform: translateY(7px) }
   100% { transform: translateY(0) }
 }
 
@@ -549,4 +477,55 @@ stroke-width: 2px;
   100% {
     transform: scale(1.2, 1.2);
   }
+}
+
+.quarter-note,
+.quarter-note-rap {
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 32px;
+  top: 10px;
+  opacity: .6;
+}
+
+.quarter-note::before,
+.quarter-note-rap::before {
+  height: 10px;
+  width: 10px;
+}
+
+.quarter-note::after {
+  content: "";
+  height: 28px;
+  width: 1px;
+  background-color: #ff477e;
+  position: absolute;
+  top: -24px;
+  right: 2px;
+}
+
+.quarter-note-rap::after {
+  content: "";
+  height: 28px;
+  width: 1px;
+  background-color: rgb(81, 170, 232);
+  position: absolute;
+  top: -24px;
+  right: 2px;
+}
+.quarter-note::before,
+.quarter-note-rap::before {
+  position: absolute;
+  content: "";
+  /* transform: rotatez(-100deg); */
+  border-radius: 50%;
+}
+
+.quarter-note::before {
+  background-color: #ff477e;
+}
+
+.quarter-note-rap::before {
+  background-color: rgb(81, 170, 232);
 }

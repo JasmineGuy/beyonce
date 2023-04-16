@@ -1,5 +1,5 @@
 //Global definitions and functions
-const margin = {top: 125, right: 120, bottom: 125, left: 100},
+const margin = {top: 125, right: 150, bottom: 125, left: 150},
 width = 1500 - margin.left - margin.right,
 height = 750 - margin.top - margin.bottom;
 const R = 13;
@@ -30,62 +30,6 @@ const getStemPosition = (d, i) =>  {
   const result = songDate.setDate(songDate.getDate() + addedDays);
   return result;
 }
-
-// const clicked = (event, d) => {
-//   console.log("clicked data", d)
-//   const player = document.getElementById('player');
-//   const currentRing = document.querySelector(".reverb")
-//   const currentAlbum = document.querySelector(".pulsing")
-//   const currentSong = document.querySelector(".playing")
-//   let selected;
-
-
-//   // album animation behavior
-//   if(d.ring) {
-//     const ring = event.target
-//     ring.classList.add("reverb")
-//     selected = event.target.parentNode
-//     selected.classList.add("pulsing")
-
-//     if (d.src != "" && player.src != d.src) {
-//       player.src = d.src;
-//       player.play();
-//     } else {
-//       player.src = "";
-//       selected.classList.remove("pulsing");
-//       ring.classList.remove("reverb")
-//       player.pause();
-//     }
-//   } else { // song animation behavior
-//     selected = event.target.parentNode
-//     selected.classList.add("playing")
-
-//     if (d.src != "" && player.src != d.src) {
-//       player.src = d.src;
-//       player.play();
-//       // currentSong.classList.remove("playing")
-//     } else {
-//       player.src = "";
-//       // currentSong.classList.remove("playing")
-//       // if (currentSong !== selected) {
-//       selected.classList.remove("playing")
-//       // }
-//       player.pause();
-//     }
-//   }
-//   // handle selection change
-//   currentRing.classList.remove("reverb")
-
-//   if (currentAlbum !== selected) {
-//     currentAlbum.classList.remove("pulsing")
-//   }
-//   // if (currentSong !== selected || selected !== currentRing) {
-//   //   currentSong.classList.remove("playing")
-//   // }
-
-//   event.stopPropagation();
-// };
-
 
 const clicked = (event, d) => {
   const player = document.getElementById('player');
@@ -140,9 +84,11 @@ const svg = d3.select("#container")
 const dates = data.map((elem) => getDate(elem.release_date))
 const pops = data.map((elem) => elem.popularity)
 
+const [minDate, maxDate] = d3.extent(dates)
+const adjustedMin = getStemPosition(minDate)
 // Add X axis for first viz
 const x = d3.scaleLinear()
-  .domain(d3.extent(dates))
+  .domain([adjustedMin, maxDate])
   .range([ 0, width ]);
 
 svg.append("g")
@@ -152,18 +98,20 @@ svg.append("g")
 //axis labels
 svg.append("text")
   .attr("class", "x-label")
-  .attr("x", width / 2)
-  .attr("y", height + 60)
+  .attr("x", width / 2.25)
+  .attr("y", height + 85)
   .text("Date of Album Release")
-  .style("opacity", 1, "font-size", "14px")
+  .style("opacity", 1)
+  .style("font-size", '20px')
 
 svg.append("text")
   .attr("class", "y-label")
   .attr("x", 0)
   .attr("y", -75)
-  .attr("transform", `translate(20,${height / 2}) rotate(270)`)
+  .attr("transform", `translate(20,${height / 1.5}) rotate(270)`)
   .text("Spotify Popularity")
-  .style("opacity", 1, "font-size", "14px")
+  .style("opacity", 1)
+  .style("font-size", '20px')
 
 
 // Add Y axis for first viz
@@ -200,8 +148,9 @@ const getManipulatedData = (metric) => {
 const drawAlbums = (refinedData, metric) => {
   const metricPops = refinedData.map((elem) => elem.metric)
 
+  const [min, max] = d3.extent(metricPops)
   // reset & transition y axis & labels
-  y.domain(d3.extent(metricPops))
+  y.domain([min-5, max+5])
 
   d3.select("g.y-axis").transition().duration(duration)
     .call(d3.axisLeft(y))
@@ -305,10 +254,10 @@ const all = d3.select("#container2")
 const dates2 = allData.map((elem) => getDate(elem.release_date))
 const pops2 = allData.map((elem) => elem.popularity)
 const tooltip2 = d3.select(container2).select(".tooltip2");
-
+const [minDate2, maxDate2] =d3.extent(dates2)
 // Add X axis for second viz
 const x2 = d3.scaleLinear()
-  .domain(d3.extent(dates2))
+  .domain([getStemPosition(minDate2), maxDate2])
   .range([ 0, width ]);
 
 all.append("g")
@@ -327,22 +276,23 @@ all.append("g").attr("class", "y-axis2")
 all.append("text")
   .attr("class", "x-label")
   .attr("x", width / 2)
-  .attr("y", height + 60)
+  .attr("y", height + 80)
   .text("Date of Release")
-  .style("opacity", 1, "font-size", "14px")
+  .style("opacity", 1)
+  .style("font-size", '20px')
 
 all.append("text")
   .attr("class", "y-label2")
   .attr("x", 0)
   .attr("y", -75)
-  .attr("transform", `translate(20,${height / 2}) rotate(270)`)
+  .attr("transform", `translate(20,${height / 1.5}) rotate(270)`)
   .text("Spotify Popularity")
-  .style("opacity", 1, "font-size", "14px")
+  .style("opacity", 1)
+  .style("font-size", '20px')
+
 
 const updateMix = () => {
-
   const mixMetric = document.getElementById('mixMetric').value;
-  console.log(mixMetric)
   drawMixed(getMixData(mixMetric), mixMetric)
 }
 
@@ -368,7 +318,9 @@ const drawMixed = (updatedData, metric) => {
   const mixedPops = updatedData.map((elem) =>elem.metric)
 
   // reset y axis
-  y2.domain(d3.extent(mixedPops))
+
+  const [min, max] = d3.extent(mixedPops)
+  y2.domain([min-5, max+5])
   d3.select("g.y-axis2").transition().duration(duration)
     .call(d3.axisLeft(y2))
   d3.select(".y-label2").text(labels[metric]).transition().duration(duration)
@@ -386,9 +338,9 @@ const drawMixed = (updatedData, metric) => {
 
         // create initial plot points for albums
         albums.append("circle")
-          .attr("class", (d) => !d.album ? "center" : "altCenter")
+          .attr("class", (d) => !d.album ? "music" : "center")
           .attr("r", (d) => d.album ? R : 8)
-          .style("fill", (d) => !d.album ? plotColor : "gray")
+          .style("fill", (d) => !d.album ? "#ff477e" : plotColor)
           .style("opacity",  (d) => d.album ? 1 : 0.6)
           .on("mouseover", (evt, d) => {
             const tooltipText2 = d.album ? `
@@ -402,7 +354,7 @@ const drawMixed = (updatedData, metric) => {
                  <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip2
               .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 50}px`)
+              .style("left", `${evt.pageX - 30}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -414,14 +366,14 @@ const drawMixed = (updatedData, metric) => {
           .data((d) => d.info)
           .join("circle")
           .attr("r", (d, i) => 10 * i + 20)
-          .style("stroke", "gray")
+          .style("stroke", plotColor)
           .style("fill", "none")
           .attr("class", "ring")
           .on("mouseenter", (evt, d) => {
             const tooltipText2 = `<strong> Track: ${d.song}</strong>`;
             tooltip2
               .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 50}px`)
+              .style("left", `${evt.pageX - 30}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -436,8 +388,9 @@ const drawMixed = (updatedData, metric) => {
 
         albums.append('line')
           .attr("class", "stem")
+          .style('opacity', .5)
           .style("visibility",(d)=>  d.album ? "hidden" : "visible")
-          .attr("stroke", plotColor)
+          .attr("stroke", "#ff477e")
           .attr("y2",(d, i) =>  i % 2 === 0 ? 40 : -40)
           .attr("x1",  (d, i ) => i % 2 === 0 ? -7 : 7)
           .attr("x2", (d, i) => i % 2 === 0 ? -7 : 7)
@@ -448,7 +401,7 @@ const drawMixed = (updatedData, metric) => {
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
                 .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 50}px`)
+                .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -470,8 +423,8 @@ const drawMixed = (updatedData, metric) => {
                   <span>${d.label}: ${d.metric} </span>
                   <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 20}px`)
+              .style("top", `${evt.pageY - 75}px`)
+              .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -495,20 +448,32 @@ const dates3 = songData.map((elem) => getDate(elem.release_date))
 const pops3 = songData.map((elem) => elem.popularity)
 
 // Add X axis for second viz
+
+const [minDate3, maxDate3] = d3.extent(dates3);
 const x3 = d3.scaleLinear()
-  .domain(d3.extent(dates3))
+  .domain([getStemPosition(minDate3), maxDate3])
   .range([0, width]);
 
 songs.append("g")
   .attr("transform", `translate(0, ${height})`)
   .call(d3.axisBottom(x3).tickPadding(10).tickFormat(d3.timeFormat("%Y")));
 
-songs.append("text").attr("class", "x-label").attr("x", width / 2)
-  .attr("y", height + 60).text("Date of Release").style("opacity", 1).style("font-size", "14px");
+songs.append("text")
+  .attr("class", "x-label")
+  .attr("x", width / 2)
+  .attr("y", height + 60)
+  .text("Date of Release")
+  .style("opacity", 1)
+  .style("font-size", "20px");
 
-songs.append("text").attr("class", "y-label3").attr("x", 0).attr("y", -75)
-  .attr("transform", `translate(20,${height / 2}) rotate(270)`)
-  .text("Spotify Popularity").style("opacity", 1).style("font-size", "14px");
+songs.append("text")
+  .attr("class", "y-label3")
+  .attr("x", 0)
+  .attr("y", -75)
+  .attr("transform", `translate(20,${height / 1.5}) rotate(270)`)
+  .text("Spotify Popularity")
+  .style("opacity", 1)
+  .style("font-size", "20px");
 
 // Add Y axis for second viz
 const y3 = d3.scaleLinear()
@@ -519,7 +484,6 @@ songs.append("g").attr("class", "y-axis3")
   .call(d3.axisLeft(y3).tickPadding(5));
 
 const tooltip3 = d3.select(container3).select(".tooltip3");
-
 
 const updateSongs = () => {
   const songMetric = document.getElementById('songMetric').value;
@@ -542,12 +506,18 @@ const getSongData = (metric) => {
 
 const drawSongs = (refinedSongs, metric) => {
   const songPops = refinedSongs.map((elem) =>elem.metric)
-
   // reset y axis
+
   y3.domain(d3.extent(songPops))
-  d3.select("g.y-axis3").transition().duration(duration)
+  d3.select("g.y-axis3")
+    .transition()
+    .duration(duration)
     .call(d3.axisLeft(y3))
-  d3.select(".y-label3").text(labels[metric]).transition().duration(duration)
+
+  d3.select(".y-label3")
+    .text(labels[metric])
+    .transition()
+    .duration(duration)
 
   const chart = songs
     .selectAll(".notes")
@@ -563,7 +533,7 @@ const drawSongs = (refinedSongs, metric) => {
         notes.append("circle")
           .attr("class", (d) => d.rap ? "center" : "altCenter")
           .attr("r", 8)
-          .style("fill", (d) => d.rap ? plotColor : "green")
+          .style("fill", (d) => d.rap ? plotColor : "#ff477e")
           .style("opacity", 0.6)
           .on("mouseover", (evt, d) => {
             console.log(d)
@@ -573,7 +543,7 @@ const drawSongs = (refinedSongs, metric) => {
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip3
               .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 20}px`)
+              .style("left", `${evt.pageX - 30}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -582,7 +552,7 @@ const drawSongs = (refinedSongs, metric) => {
 
         notes.append('line')
           .attr("class", "stem")
-          .attr("stroke", (d) => d.rap ? plotColor: "green")
+          .attr("stroke", (d) => d.rap ? plotColor: "#ff477e")
           .attr("y2", (d, i) => i % 2 === 0 ? 45 : -45)
           .attr("x1", (d, i ) => i % 2 === 0 ?  -8 : 8)
           .attr("x2",(d, i ) => i % 2 === 0 ?  -8 : 8)
@@ -594,7 +564,7 @@ const drawSongs = (refinedSongs, metric) => {
 
             tooltip3
               .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 20}px`)
+              .style("left", `${evt.pageX - 30}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -611,8 +581,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 20}px`)
+              .style("top", `${evt.pageY - 75}px`)
+              .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -625,8 +595,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 20}px`)
+              .style("top", `${evt.pageY - 75}px`)
+              .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -639,8 +609,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 20}px`)
+              .style("top", `${evt.pageY - 75}px`)
+              .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -654,7 +624,7 @@ const drawSongs = (refinedSongs, metric) => {
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
                 .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 20}px`)
+                .style("left", `${evt.pageX - 30}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -681,20 +651,31 @@ const billboard = d3.select("#container4")
 const dates4 = billboardData.map((elem) => getDate(elem.chart_debut))
 const pops4 = billboardData.map((elem) => elem.peak_position)
 
+const [minDate4, maxDate4] = d3.extent(dates4)
 // Add X axis
 const x4 = d3.scaleLinear()
-  .domain(d3.extent(dates4))
+  .domain([getStemPosition(minDate4), maxDate4])
   .range([0, width]);
 
 billboard.append("g")
   .attr("transform", `translate(0, ${height})`)
   .call(d3.axisBottom(x4).tickPadding(10).tickFormat(d3.timeFormat("%Y")));
 
-billboard.append("text").attr("class", "x-label").attr("x", width / 2)
-  .attr("y", height + 60).text("Billboard Debut").style("opacity", 1)
-  .style("font-size", "14px");
+billboard.append("text")
+  .attr("class", "x-label")
+  .attr("x", width / 2.25)
+  .attr("y", height + 80)
+  .text("Billboard Debut Date")
+  .style("opacity", 1)
+  .style("font-size", "20px");
 
-billboard.append("text").attr("class", "y-label").attr("x", 0).attr("y", -75).attr("transform", `translate(20,${height / 2}) rotate(270)`).text("Peak Chart Position").style("opacity", 1).style("font-size", "14px");
+billboard.append("text")
+  .attr("class", "y-label")
+  .attr("x", 0).attr("y", -75)
+  .attr("transform", `translate(20,${height / 1.5}) rotate(270)`)
+  .text("Peak Chart Position")
+  .style("opacity", 1)
+  .style("font-size", "20px");
 
 // Add Y axis
 const y4 = d3.scaleLinear()
@@ -713,7 +694,7 @@ appearance
   .attr("cx", (d) => x4(getDate(d.chart_debut)))
   .attr("cy", (d) => y4(d.peak_position))
   .attr("r", 8)
-  .style("fill", (d) => (d.rap === "TRUE" ? plotColor : "green"))
+  .style("fill", (d) => (d.rap === "TRUE" ? plotColor : "#ff477e"))
   .style("opacity", 0.6)
   .attr("class", (d) => d.rap ==="TRUE" ? "center" : "music")
   .on("mouseenter", (evt, d) => {
@@ -722,8 +703,8 @@ appearance
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.pageY - 35}px`)
-      .style("left", `${evt.pageX - 70}px`)
+      .style("top", `${evt.pageY - 75}px`)
+      .style("left", `${evt.pageX - 30}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
@@ -739,31 +720,21 @@ appearance
   )
   .attr("x1", (d, i) => x4(getStemPosition(d.chart_debut, i)))
   .attr("x2", (d, i) => x4(getStemPosition(d.chart_debut, i)))
-  .attr("stroke", (d) => (d.rap === "TRUE" ? plotColor : "green"))
+  .attr("stroke", (d) => (d.rap === "TRUE" ? plotColor : "#ff477e"))
   .attr("class", "stem")
   .on("mouseenter", (evt, d) => {
-    const [mx, my] = d3.pointer(evt);
     const tooltipText4 = `
       <strong> ${d.song}</strong>
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.pageY - 35}px`)
-      .style("left", `${evt.pageX - 70}px`)
+      .style("top", `${evt.pageY - 75}px`)
+      .style("left", `${evt.pageX - 35}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
   .on("mouseout", () => tooltip4.text("").style("opacity", 0))
   .on("click", clicked);
-
-// const renderAllCharts = async () => {
-//   // calls all 3 functions at the same time
-//   await Promise.all([
-//     updateMix(),
-//     // updateSongs(),
-//     // updateAlbums(),
-//   ])
-// }
 
 const renderAllCharts = async () => {
   // calls all 3 functions at the same time
@@ -775,12 +746,6 @@ const renderAllCharts = async () => {
     console.log(err)
   }
 }
-
-// const renderAllCharts = () => {
-//   updateMix()
-//   updateSongs()
-//   updateAlbums()
-// }
 
 renderAllCharts()
 
