@@ -506,6 +506,24 @@ songs.append("text")
   .style("opacity", 1)
   .style("font-size", "20px");
 
+
+    songs.append("line")
+    .attr('class', "threshold")
+    .attr("x1", x(getDate("2001-06-17T00:00:00")))
+    .attr("x2", width)
+    .attr("y1", y2(.33))
+    .attr("y2", y2(.33))
+    .style("opacity", 1)
+
+    songs.append("text")
+    .attr('class', "threshold-label")
+    .attr('x', x2(getDate("2022-08-30T00:00:00")))
+    .attr('y', y2(.335))
+    .attr('font-size', '16px')
+    .style("color", "black")
+    .text("Rap Threshold")
+    .style("opacity", 1)
+
 // Add Y axis for second viz
 const y3 = d3.scaleLinear()
   .domain(d3.extent(pops3))
@@ -536,6 +554,7 @@ const getSongData = (metric) => {
 }
 
 const drawSongs = (refinedSongs, metric) => {
+  console.log('🫶🏼 🧐 drawSongs 🧐 metric:', metric);
   const songPops = refinedSongs.map((elem) =>elem.metric)
   // reset y axis
 
@@ -550,6 +569,22 @@ const drawSongs = (refinedSongs, metric) => {
     .transition()
     .duration(duration)
 
+  d3.select(".threshold-label")
+    .transition()
+    .duration(duration)
+    .attr("visibility", metric === "speech" ? "visible" : "hidden")
+    .attr('x', x3(getDate("2022-12-30T00:00:00")))
+    .attr('y', y3(.335))
+
+  d3.select(".threshold")
+    .transition()
+    .duration(duration)
+    .attr("visibility", metric === "speech" ? "visible" : "hidden")
+    .attr('x1', x3(getDate("2001-06-30T00:00:00")))
+    .attr("x2", x3(getDate("2022-12-30T00:00:00")))
+    .attr('y1', y3(.335))
+    .attr("y2", y3(.335))
+
   const chart = songs
     .selectAll(".notes")
     .data(refinedSongs, (d) => d.name)
@@ -559,7 +594,6 @@ const drawSongs = (refinedSongs, metric) => {
         notes.transition().duration(duration).attr("opacity", 1);
 
         notes.attr("transform", (d) => `translate(${x3(getDate(d.release_date))}, ${y3(d.metric)})`)
-
         // create initial plot points for notes
         notes.append("circle")
           .attr("class", (d) => d.rap ? "center" : "altCenter")
@@ -668,14 +702,6 @@ const drawSongs = (refinedSongs, metric) => {
         return exit.transition().duration(duration).attr("opacity", 0).remove();
       }
   );
-
-     meanLine
-      .raise()
-      .transition()
-      .attr("x1", x3(getDate("2001-06-21T00:00:00")))
-      .attr("y1", y3(.33))
-      .attr("x2", x3(getDate("2022-012-21T00:00:00")))
-      .attr("y2", y3(.33));
 }
 
 // billboard  data viz
