@@ -16,10 +16,6 @@ body{
   }
 }
 
-p {
-  padding: .5em 0;
-  /* line-height: 1.35em; */
-}
 
 
 .indent {
@@ -89,7 +85,7 @@ p {
   margin: auto;
   margin-bottom: 2em;
   margin-top: 2em;
-  padding: 1.5em 1.5em 1.5em 3em;
+  padding: 1.5em;
   box-shadow: 4px 4px 4px lightgray;
   border-radius: 4px;
 }

@@ -554,7 +554,6 @@ const getSongData = (metric) => {
 }
 
 const drawSongs = (refinedSongs, metric) => {
-  console.log('🫶🏼 🧐 drawSongs 🧐 metric:', metric);
   const songPops = refinedSongs.map((elem) =>elem.metric)
   // reset y axis
 
