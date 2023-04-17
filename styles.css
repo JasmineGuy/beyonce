@@ -498,7 +498,7 @@ footer {
 
 .quarter-note::after {
   content: "";
-  height: 20px;
+  height: 22px;
   width: 1px;
   background-color: #ff477e;
   position: absolute;
@@ -508,7 +508,7 @@ footer {
 
 .quarter-note-rap::after {
   content: "";
-  height: 20px;
+  height: 22px;
   width: 1px;
   background-color: rgb(81, 170, 232);
   position: absolute;
