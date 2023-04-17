@@ -34,11 +34,13 @@ body{
 
 .text {
   line-height: 1.5em;
+  font-style: normal;
+  padding: .5em 0 0;
 }
 
 .subscript {
   font-size: 16px;
-  /* width: 50%; */
+  padding: .5em 0;
 }
 
 @media screen and (max-width: 1430px) {
@@ -50,6 +52,8 @@ body{
 .initial-instructions {
   display: flex;
   flex-direction: column;
+  /* padding: .5em 0 .75em; */
+  line-height: 1.25em;
 }
 
 .instructions-wrapper {
@@ -60,9 +64,11 @@ body{
 .instructions {
   display: flex;
   background-color: white;
-  gap: 1em;
-  width: 100%;
+  /* gap: 1em; */
+  /* width: 80%; */
   justify-content: space-between;
+  /* padding: .5em 0 .75em; */
+  line-height: 1.25em;
 }
 
 .smaller  {
@@ -80,12 +86,12 @@ body{
   background-color: rgb(81, 170, 232);
   color: white;
   width: 60%;
-  max-width: 675px;
+  max-width: 600px;
   justify-content: center;
   margin: auto;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  padding: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  padding: 1.5em 1.5em 1.5em 2em;
   box-shadow: 4px 4px 4px lightgray;
   border-radius: 4px;
 }
@@ -208,11 +214,10 @@ body{
 #container4 {
   background-color: white;
   border: 1px solid lightgray;
-  margin-right: auto;
   width: 100%;
   height: max-content;
-  margin-right: auto;
   border-radius: 4px;
+  margin-top: .75em;
 }
 
 .viz{
