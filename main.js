@@ -668,6 +668,14 @@ const drawSongs = (refinedSongs, metric) => {
         return exit.transition().duration(duration).attr("opacity", 0).remove();
       }
   );
+
+     meanLine
+      .raise()
+      .transition()
+      .attr("x1", x3(getDate("2001-06-21T00:00:00")))
+      .attr("y1", y3(.33))
+      .attr("x2", x3(getDate("2022-012-21T00:00:00")))
+      .attr("y2", y3(.33));
 }
 
 // billboard  data viz

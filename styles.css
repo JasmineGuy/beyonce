@@ -16,6 +16,15 @@ body{
   }
 }
 
+p {
+  padding: .5em 0;
+  /* line-height: 1.35em; */
+}
+
+
+.indent {
+  margin-left: 2em;
+}
 .title {
   padding-top: 1em;
   font-size: 40px;
@@ -80,7 +89,7 @@ body{
   margin: auto;
   margin-bottom: 2em;
   margin-top: 2em;
-  padding: 1em;
+  padding: 1.5em 1.5em 1.5em 3em;
   box-shadow: 4px 4px 4px lightgray;
   border-radius: 4px;
 }
@@ -533,4 +542,9 @@ footer {
 
 .conclusion {
   font-style: normal;
+}
+
+.threshold {
+  stroke: gray;
+  stroke-dasharray: 4, 5;
 }
