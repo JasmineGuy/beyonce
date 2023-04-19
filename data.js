@@ -798,7 +798,7 @@ const songData = [
   },
   {
     rap: false,
-    name: "The Closer I Get to You (feat. Beyoncé Knowles)",
+    name: "The Closer I Get to You (feat. Beyonc&#233 Knowles)",
     src: "http://p.scdn.co/mp3-preview/f651318c21d97927cc1483d491e45118b09fbdc3?cid=162b7dc01f3a4a2ca32ed3cec83d1e02",
     release_date: "2003-06-20 0:00:00",
     popularity: 46,
