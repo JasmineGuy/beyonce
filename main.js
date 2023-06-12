@@ -78,8 +78,8 @@ const clicked = (event, d) => {
       player.pause();
     }
   }
-  currentRing.classList.remove("reverb")
-  if (currentAlbum !== selected) {
+  currentRing && currentRing.classList.remove("reverb")
+  if (currentAlbum && currentAlbum !== selected) {
     currentAlbum.classList.remove("pulsing")
   }
   event.stopPropagation();

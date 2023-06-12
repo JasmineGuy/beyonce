@@ -1701,7 +1701,7 @@ const songData = [
   {
     rap: true,
     name: "APESHIT",
-    src: "https://p.scdn.co/mp3-preview/822f26680ce00779f95df032465b33dc34638fdf?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+    src: "https://p.scdn.co/mp3-preview/5995feaa7c72c09ae621e4d7e6d9dbe7514c3ca0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
     release_date: "2018-06-17 0:00:00",
     popularity: 57,
     grammys: 0,
@@ -1761,7 +1761,7 @@ const songData = [
   {
     rap: true,
     name: "BLACK EFFECT",
-    src: "https://p.scdn.co/mp3-preview/0350dcec8815cafa5ae10bc639007454a8a94dd8?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+    src: "https://p.scdn.co/mp3-preview/2553c933d0fa538ad835f73653aa90bfe5379699?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
     release_date: "2018-06-17 0:00:00",
     popularity: 38,
     grammys: 0,
