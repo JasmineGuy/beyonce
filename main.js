@@ -4,7 +4,7 @@ width = 1500 - margin.left - margin.right,
 height = 750 - margin.top - margin.bottom;
 const R = 13;
 const duration = 1000;
-const plotColor = "rgb(81, 170, 232)";
+const plotColor = "#6365BA";
 
 const getDate = (d) => {
   let albumDate = new Date(d);
@@ -93,12 +93,13 @@ const svg = d3.select("#container")
 
 const dates = data.map((elem) => getDate(elem.release_date))
 const pops = data.map((elem) => elem.popularity)
-
 const [minDate, maxDate] = d3.extent(dates)
 const adjustedMin = getStemPosition(minDate)
+const extendedDate = getDate('2023-12-31 0:00:00')
+
 // Add X axis for first viz
 const x = d3.scaleLinear()
-  .domain([adjustedMin, maxDate])
+  .domain([adjustedMin, extendedDate])
   .range([ 0, width ]);
 
 svg.append("g")
@@ -121,7 +122,7 @@ svg.append("text")
   .attr("transform", `translate(20,${height / 1.5}) rotate(270)`)
   .text("Spotify Popularity")
   .style("opacity", 1)
-  .style("font-size", '20px')
+  .style("font-size", '32px')
 
 
 // Add Y axis for first viz
@@ -130,7 +131,7 @@ const y = d3.scaleLinear()
   .range([height, 0]);
 
 svg.append("g").attr("class", "y-axis")
-  .call(d3.axisLeft(y).tickPadding(10).ticks(1));
+  .call(d3.axisLeft(y).tickPadding(15).ticks(1));
 
 const tooltip = d3.select("#container").select(".tooltip");
 
@@ -154,7 +155,7 @@ const getManipulatedData = (metric) => {
   });
 }
 
-// draw album viz
+// Viz #1
 const drawAlbums = (refinedData, metric) => {
   const metricPops = refinedData.map((elem) => elem.metric)
 
@@ -163,9 +164,24 @@ const drawAlbums = (refinedData, metric) => {
   y.domain([min-5, max+5])
 
   d3.select("g.y-axis").transition().duration(duration)
-    .call(d3.axisLeft(y))
+    .call(d3.axisLeft(y).tickSizeInner(-width).tickPadding(15))
 
   d3.select(".y-label").text(labels[metric]).transition().duration(duration)
+
+  const values = d3.selectAll('text')
+  values.style('color', '#494D5F').style('font-size', '14px')
+
+  const axisX = d3.selectAll('.x-label')
+  axisX.style('font-size', '21px')
+
+  const axisY= d3.selectAll('.y-label')
+  axisY.style('font-size', '21px')
+
+  const axisY2= d3.select('.y-label2')
+  axisY2.style('font-size', '21px')
+
+  const axisY3= d3.select('.y-label3')
+  axisY3.style('font-size', '21px')
 
   const g = svg
     .selectAll(".dot")
@@ -191,11 +207,11 @@ const drawAlbums = (refinedData, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip
-              .style("top", `${evt.pageY - 225}px`)
-              .style("left", `${evt.pageX - 50}px`)
+              .style("top", `${(evt.y)}px`)
+              .style("left", `${evt.offsetX + 50}px`)
               .style("color", "#000")
               .style("opacity", 1)
-              .html(tooltipText);
+              .html(tooltipText)
           })
           .on("mouseout", () => tooltip.text("").style("opacity", 0));
 
@@ -211,8 +227,8 @@ const drawAlbums = (refinedData, metric) => {
             const [mx, my] = d3.pointer(evt);
             const tooltipText = `<strong> Track: ${d.song}</strong>`;
             tooltip
-              .style("top", `${evt.pageY - 50}px`)
-              .style("left", `${evt.pageX - 50}px`)
+              .style("top", `${(evt.y + 75)}px`)
+              .style("left", `${evt.offsetX }px`)
               .style("opacity", 1)
               .style("color", "#000")
               .html(tooltipText);
@@ -237,8 +253,8 @@ const drawAlbums = (refinedData, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip
-              .style("top", `${evt.pageY - 225}px`)
-              .style("left", `${evt.pageX - 50}px`)
+              .style("top", `${(evt.y)}px`)
+              .style("left", `${evt.offsetX }px`)
               .style("color", "#000")
               .style("opacity", 1)
               .html(tooltipText);
@@ -252,9 +268,8 @@ const drawAlbums = (refinedData, metric) => {
     }
   );
 }
-  // End album viz
 
-// Start mixed viz
+// Viz #2
 const all = d3.select("#container2")
   .append("svg").attr("class", "viz")
     .attr("viewBox", `0 0 1500 750`)
@@ -263,16 +278,18 @@ const all = d3.select("#container2")
 
 const dates2 = allData.map((elem) => getDate(elem.release_date))
 const pops2 = allData.map((elem) => elem.popularity)
+const laterDate = getDate('2023-12-31 0:00:00')
+
 const tooltip2 = d3.select(container2).select(".tooltip2");
 const [minDate2, maxDate2] =d3.extent(dates2)
 // Add X axis for second viz
 const x2 = d3.scaleLinear()
-  .domain([getStemPosition(minDate2), maxDate2])
+  .domain([getStemPosition(minDate2), laterDate])
   .range([ 0, width ]);
 
 all.append("g")
   .attr("transform", `translate(0, ${height})`)
-  .call(d3.axisBottom(x2).ticks(20).tickPadding(10).tickFormat(d3.timeFormat("%Y")));
+  .call(d3.axisBottom(x2).ticks(20).tickPadding(15).tickFormat(d3.timeFormat("%Y")));
 
 // Add Y axis for second viz
 const y2 = d3.scaleLinear()
@@ -280,7 +297,7 @@ const y2 = d3.scaleLinear()
   .range([ height, 0]);
 
 all.append("g").attr("class", "y-axis2")
-  .call(d3.axisLeft(y2).tickPadding(10));
+  .call(d3.axisLeft(y2).tickPadding(15));
 
 // axis labels
 all.append("text")
@@ -328,12 +345,27 @@ const drawMixed = (updatedData, metric) => {
   const mixedPops = updatedData.map((elem) =>elem.metric)
 
   // reset y axis
-
   const [min, max] = d3.extent(mixedPops)
   y2.domain([min-5, max+5])
   d3.select("g.y-axis2").transition().duration(duration)
-    .call(d3.axisLeft(y2))
+    .call(d3.axisLeft(y2).tickSizeInner(-width))
   d3.select(".y-label2").text(labels[metric]).transition().duration(duration)
+
+
+  const values = d3.selectAll('text')
+  values.style('color', '#494D5F').style('font-size', '14px')
+
+  const axisX = d3.selectAll('.x-label')
+  axisX.style('font-size', '21px')
+
+  const axisY= d3.selectAll('.y-label')
+  axisY.style('font-size', '21px')
+
+  const axisY2= d3.select('.y-label2')
+  axisY2.style('font-size', '21px')
+
+  const axisY3= d3.select('.y-label3')
+  axisY3.style('font-size', '21px')
 
   const albums = all
     .selectAll(".albums")
@@ -350,7 +382,7 @@ const drawMixed = (updatedData, metric) => {
         albums.append("circle")
           .attr("class", (d) => !d.album ? "music" : "center")
           .attr("r", (d) => d.album ? R : 8)
-          .style("fill", (d) => !d.album ? "#ff477e" : plotColor)
+          .style("fill", (d) => !d.album ? "#DF703C" : plotColor)
           .style("opacity",  (d) => d.album ? 1 : 0.6)
           .on("mouseover", (evt, d) => {
             const tooltipText2 = d.album ? `
@@ -363,8 +395,8 @@ const drawMixed = (updatedData, metric) => {
                  <span>${d.label}: ${d.metric} </span>
                  <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip2
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${(evt.y)}px`)
+              .style("left", `${evt.offsetX + 50}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -382,8 +414,8 @@ const drawMixed = (updatedData, metric) => {
           .on("mouseenter", (evt, d) => {
             const tooltipText2 = `<strong> Track: ${d.song}</strong>`;
             tooltip2
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${evt.y + 75}px`)
+              .style("left", `${evt.offsetX}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -400,7 +432,7 @@ const drawMixed = (updatedData, metric) => {
           .attr("class", "stem")
           .style('opacity', .5)
           .style("visibility",(d)=>  d.album ? "hidden" : "visible")
-          .attr("stroke", "#ff477e")
+          .attr("stroke", "#DF703C")
           .attr("y2",(d, i) =>  i % 2 === 0 ? 40 : -40)
           .attr("x1",  (d, i ) => i % 2 === 0 ? -7 : 7)
           .attr("x2", (d, i) => i % 2 === 0 ? -7 : 7)
@@ -434,8 +466,8 @@ const drawMixed = (updatedData, metric) => {
                   <span>${d.label}: ${d.metric} </span>
                   <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${(evt.y)}px`)
+              .style("left", `${evt.offsetX + 50}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -454,8 +486,8 @@ const drawMixed = (updatedData, metric) => {
                   <span>${d.label}: ${d.metric} </span>
                   <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${(evt.y)}px`)
+              .style("left", `${evt.offsetX + 50}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -470,7 +502,7 @@ const drawMixed = (updatedData, metric) => {
   );
 }
 
-// notes only viz,
+// Viz #3
 const songs = d3.select("#container3")
   .append("svg").attr("class", "viz").attr("viewBox", `0 0 1500 750`)
   .append("g").attr("transform",`translate(${margin.left}, ${margin.top})`);
@@ -481,13 +513,15 @@ const pops3 = songData.map((elem) => elem.popularity)
 // Add X axis for second viz
 
 const [minDate3, maxDate3] = d3.extent(dates3);
+const lateDate = getDate('2023-12-31 0:00:00')
+
 const x3 = d3.scaleLinear()
-  .domain([getStemPosition(minDate3), maxDate3])
+  .domain([getStemPosition(minDate3), lateDate])
   .range([0, width]);
 
 songs.append("g")
   .attr("transform", `translate(0, ${height})`)
-  .call(d3.axisBottom(x3).tickPadding(10).tickFormat(d3.timeFormat("%Y")));
+  .call(d3.axisBottom(x3).tickPadding(15).tickFormat(d3.timeFormat("%Y")));
 
 songs.append("text")
   .attr("class", "x-label")
@@ -519,7 +553,9 @@ songs.append("text")
     .attr('class', "threshold-label")
     .attr('x', x2(getDate("2022-08-30T00:00:00")))
     .attr('y', y2(.335))
-    .attr('font-size', '16px')
+      .attr('font-size', '14px')
+    .attr('font-family', 'Museo Slab')
+
     .style("color", "black")
     .text("Rap Threshold")
     .style("opacity", 1)
@@ -530,7 +566,7 @@ const y3 = d3.scaleLinear()
   .range([height, 0]);
 
 songs.append("g").attr("class", "y-axis3")
-  .call(d3.axisLeft(y3).tickPadding(5));
+  .call(d3.axisLeft(y3).tickPadding(15));
 
 const tooltip3 = d3.select(container3).select(".tooltip3");
 
@@ -561,7 +597,7 @@ const drawSongs = (refinedSongs, metric) => {
   d3.select("g.y-axis3")
     .transition()
     .duration(duration)
-    .call(d3.axisLeft(y3))
+    .call(d3.axisLeft(y3).tickSizeInner(-width))
 
   d3.select(".y-label3")
     .text(labels[metric])
@@ -584,6 +620,23 @@ const drawSongs = (refinedSongs, metric) => {
     .attr('y1', y3(.335))
     .attr("y2", y3(.335))
 
+
+  const values = d3.selectAll('text')
+  values.style('color', '#494D5F').style('font-size', '14px')
+
+  const axisX = d3.selectAll('.x-label')
+  axisX.style('font-size', '21px')
+
+  const axisY= d3.selectAll('.y-label')
+  axisY.style('font-size', '21px')
+
+  const axisY2= d3.select('.y-label2')
+  axisY2.style('font-size', '21px')
+
+  const axisY3= d3.select('.y-label3')
+  axisY3.style('font-size', '21px')
+
+
   const chart = songs
     .selectAll(".notes")
     .data(refinedSongs, (d) => d.name)
@@ -597,7 +650,7 @@ const drawSongs = (refinedSongs, metric) => {
         notes.append("circle")
           .attr("class", (d) => d.rap ? "center" : "altCenter")
           .attr("r", 8)
-          .style("fill", (d) => d.rap ? plotColor : "#ff477e")
+          .style("fill", (d) => d.rap ? plotColor : "#DF703C")
           .style("opacity", 0.6)
           .on("mouseover", (evt, d) => {
             const tooltipText3 = `
@@ -605,8 +658,8 @@ const drawSongs = (refinedSongs, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip3
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${evt.y +50}px`)
+              .style("left", `${evt.offsetX}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -615,7 +668,7 @@ const drawSongs = (refinedSongs, metric) => {
 
         notes.append('line')
           .attr("class", "stem")
-          .attr("stroke", (d) => d.rap ? plotColor: "#ff477e")
+          .attr("stroke", (d) => d.rap ? plotColor: "#DF703C")
           .attr("y2", (d, i) => i % 2 === 0 ? 45 : -45)
           .attr("x1", (d, i ) => i % 2 === 0 ?  -8 : 8)
           .attr("x2",(d, i ) => i % 2 === 0 ?  -8 : 8)
@@ -626,8 +679,8 @@ const drawSongs = (refinedSongs, metric) => {
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
 
             tooltip3
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+              .style("top", `${evt.y + 50}px`)
+              .style("left", `${evt.offsetX}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -644,8 +697,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+               .style("top", `${evt.y + 50}px`)
+              .style("left", `${evt.offsetX}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -658,8 +711,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+               .style("top", `${evt.y + 50}px`)
+              .style("left", `${evt.offsetX}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -672,8 +725,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-              .style("top", `${evt.pageY - 75}px`)
-              .style("left", `${evt.pageX - 30}px`)
+               .style("top", `${evt.y + 50}px`)
+              .style("left", `${evt.offsetX}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -686,8 +739,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 30}px`)
+                .style("top", `${evt.pageY + 50}px`)
+                .style("left", `${evt.offsetX}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -703,7 +756,7 @@ const drawSongs = (refinedSongs, metric) => {
   );
 }
 
-// billboard  data viz
+//Viz #4
 const billboard = d3.select("#container4")
   .append("svg")
   .attr("class", "viz")
@@ -715,14 +768,16 @@ const dates4 = billboardData.map((elem) => getDate(elem.chart_debut))
 const pops4 = billboardData.map((elem) => elem.peak_position)
 
 const [minDate4, maxDate4] = d3.extent(dates4)
+const lastDate = getDate('2023-12-31 0:00:00')
+
 // Add X axis
 const x4 = d3.scaleLinear()
-  .domain([getStemPosition(minDate4), maxDate4])
+  .domain([getStemPosition(minDate4), lastDate])
   .range([0, width]);
 
 billboard.append("g")
   .attr("transform", `translate(0, ${height})`)
-  .call(d3.axisBottom(x4).tickPadding(10).tickFormat(d3.timeFormat("%Y")));
+  .call(d3.axisBottom(x4).tickPadding(15).tickFormat(d3.timeFormat("%Y")));
 
 billboard.append("text")
   .attr("class", "x-label")
@@ -746,7 +801,7 @@ const y4 = d3.scaleLinear()
   .range([height, 0]);
 
 billboard.append("g")
-  .call(d3.axisLeft(y4).tickPadding(10));
+  .call(d3.axisLeft(y4).tickPadding(15).tickSizeInner(-width));
 
 const tooltip4 = d3.select(container4).select(".tooltip4")
 
@@ -757,7 +812,7 @@ appearance
   .attr("cx", (d) => x4(getDate(d.chart_debut)))
   .attr("cy", (d) => y4(d.peak_position))
   .attr("r", 8)
-  .style("fill", (d) => (d.rap === "TRUE" ? plotColor : "#ff477e"))
+  .style("fill", (d) => (d.rap === "TRUE" ? plotColor : "#DF703C"))
   .style("opacity", 0.6)
   .attr("class", (d) => d.rap ==="TRUE" ? "center" : "music")
   .on("mouseenter", (evt, d) => {
@@ -766,8 +821,8 @@ appearance
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.pageY - 75}px`)
-      .style("left", `${evt.pageX - 30}px`)
+      .style("top", `${evt.y + 50}px`)
+      .style("left", `${evt.offsetX}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
@@ -783,7 +838,7 @@ appearance
   )
   .attr("x1", (d, i) => x4(getStemPosition(d.chart_debut, i)))
   .attr("x2", (d, i) => x4(getStemPosition(d.chart_debut, i)))
-  .attr("stroke", (d) => (d.rap === "TRUE" ? plotColor : "#ff477e"))
+  .attr("stroke", (d) => (d.rap === "TRUE" ? plotColor : "#DF703C"))
   .attr("class", "stem")
   .on("mouseenter", (evt, d) => {
     const tooltipText4 = `
@@ -791,8 +846,8 @@ appearance
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.pageY - 75}px`)
-      .style("left", `${evt.pageX - 35}px`)
+      .style("top", `${evt.y +50}px`)
+      .style("left", `${evt.offsetX}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
@@ -811,5 +866,34 @@ const renderAllCharts = async () => {
 }
 
 renderAllCharts()
+
+const scroller = scrollama();
+const headers = document.querySelectorAll('.header')
+
+function handleSectionEnter(response) {
+  const { element } = response;
+  const audioPlayer = document.querySelector('.audio')
+  headers.forEach(header => header.classList.remove('current'))
+  element.classList.add('current')
+  element.parentNode.style.backgroundColor = '#EEEEEE'
+  element.parentNode.style.zIndex = 100;
+
+    element.appendChild(audioPlayer)
+  }
+      function init() {
+        scroller
+          .setup({
+            step: ".player-wrapper",
+            offset: 0.1,
+            // debug: true
+          })
+          .onStepEnter(handleSectionEnter);
+
+        // setup resize event
+        window.addEventListener("resize", scroller.resize);
+      }
+
+      // kick things off
+      init();
 
 
