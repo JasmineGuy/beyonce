@@ -291,6 +291,10 @@ section {
     height: max-content;
   }
 
+  .stat {
+    font-size: 15px;
+  }
+
   .header {
     height: 100px;
     /* min-width: 825px; */
