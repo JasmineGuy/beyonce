@@ -207,8 +207,8 @@ const drawAlbums = (refinedData, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip
-              .style("top", `${(evt.y)}px`)
-              .style("left", `${evt.offsetX + 50}px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("color", "#000")
               .style("opacity", 1)
               .html(tooltipText)
@@ -227,8 +227,8 @@ const drawAlbums = (refinedData, metric) => {
             const [mx, my] = d3.pointer(evt);
             const tooltipText = `<strong> Track: ${d.song}</strong>`;
             tooltip
-              .style("top", `${(evt.y + 75)}px`)
-              .style("left", `${evt.offsetX }px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("opacity", 1)
               .style("color", "#000")
               .html(tooltipText);
@@ -253,8 +253,8 @@ const drawAlbums = (refinedData, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip
-              .style("top", `${(evt.y)}px`)
-              .style("left", `${evt.offsetX }px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("color", "#000")
               .style("opacity", 1)
               .html(tooltipText);
@@ -395,8 +395,8 @@ const drawMixed = (updatedData, metric) => {
                  <span>${d.label}: ${d.metric} </span>
                  <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip2
-              .style("top", `${(evt.y)}px`)
-              .style("left", `${evt.offsetX + 50}px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -414,8 +414,8 @@ const drawMixed = (updatedData, metric) => {
           .on("mouseenter", (evt, d) => {
             const tooltipText2 = `<strong> Track: ${d.song}</strong>`;
             tooltip2
-              .style("top", `${evt.y + 75}px`)
-              .style("left", `${evt.offsetX}px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("opacity", 1)
               .html(tooltipText2);
           })
@@ -442,8 +442,8 @@ const drawMixed = (updatedData, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-                .style("top", `${evt.pageY - 75}px`)
-                .style("left", `${evt.pageX - 30}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -466,8 +466,8 @@ const drawMixed = (updatedData, metric) => {
                   <span>${d.label}: ${d.metric} </span>
                   <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-              .style("top", `${(evt.y)}px`)
-              .style("left", `${evt.offsetX + 50}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -486,8 +486,8 @@ const drawMixed = (updatedData, metric) => {
                   <span>${d.label}: ${d.metric} </span>
                   <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip2
-              .style("top", `${(evt.y)}px`)
-              .style("left", `${evt.offsetX + 50}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText2);
             })
@@ -553,9 +553,8 @@ songs.append("text")
     .attr('class', "threshold-label")
     .attr('x', x2(getDate("2022-08-30T00:00:00")))
     .attr('y', y2(.335))
-      .attr('font-size', '14px')
+    .attr('font-size', '14px')
     .attr('font-family', 'Museo Slab')
-
     .style("color", "black")
     .text("Rap Threshold")
     .style("opacity", 1)
@@ -658,8 +657,8 @@ const drawSongs = (refinedSongs, metric) => {
             <span>${d.label}: ${d.metric} </span>
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
             tooltip3
-              .style("top", `${evt.y +50}px`)
-              .style("left", `${evt.offsetX}px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -679,8 +678,8 @@ const drawSongs = (refinedSongs, metric) => {
             <span>Year: ${getDisplayDate(d.release_date)}</span>`;
 
             tooltip3
-              .style("top", `${evt.y + 50}px`)
-              .style("left", `${evt.offsetX}px`)
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
               .style("opacity", 1)
               .html(tooltipText3);
           })
@@ -697,8 +696,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-               .style("top", `${evt.y + 50}px`)
-              .style("left", `${evt.offsetX}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -711,8 +710,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-               .style("top", `${evt.y + 50}px`)
-              .style("left", `${evt.offsetX}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -725,8 +724,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-               .style("top", `${evt.y + 50}px`)
-              .style("left", `${evt.offsetX}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -739,8 +738,8 @@ const drawSongs = (refinedSongs, metric) => {
               <span>${d.label}: ${d.metric} </span>
               <span>Year: ${getDisplayDate(d.release_date)}</span>`;
               tooltip3
-                .style("top", `${evt.pageY + 50}px`)
-                .style("left", `${evt.offsetX}px`)
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
                 .style("opacity", 1)
                 .html(tooltipText3);
             })
@@ -816,13 +815,14 @@ appearance
   .style("opacity", 0.6)
   .attr("class", (d) => d.rap ==="TRUE" ? "center" : "music")
   .on("mouseenter", (evt, d) => {
+    console.log('🫶🏼 🧐 .on 🧐 evt, d:', evt, d);
     const tooltipText4 = `
       <strong> ${d.song}</strong>
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.y + 50}px`)
-      .style("left", `${evt.offsetX}px`)
+      .style("top", `${evt.layerY}px`)
+      .style("left", `${evt.layerX + 16}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
@@ -846,8 +846,8 @@ appearance
       <span>Peak Position: ${d.peak_position}</span>
       <span>Year: ${getDisplayDate(d.chart_debut)}</span>`;
     tooltip4
-      .style("top", `${evt.y +50}px`)
-      .style("left", `${evt.offsetX}px`)
+      .style("top", `${evt.layerY}px`)
+      .style("left", `${evt.layerX + 16}px`)
       .style("opacity", 1)
       .html(tooltipText4);
   })
@@ -876,7 +876,7 @@ function handleSectionEnter(response) {
   headers.forEach(header => header.classList.remove('current'))
   element.classList.add('current')
   element.parentNode.style.backgroundColor = '#EEEEEE'
-  element.parentNode.style.zIndex = 100;
+  element.parentNode.style.zIndex = 10;
 
     element.appendChild(audioPlayer)
   }

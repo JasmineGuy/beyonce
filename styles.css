@@ -75,9 +75,10 @@ body{
   position: relative;
   /* font-size: 1em; */
   background-color: #EEEEEE;
-  min-width: 500px;
+  min-width: 760px;
   color: #000;
   max-width: 1300px;
+  overflow-x: auto;
 }
 
 section {
@@ -85,6 +86,7 @@ section {
   position: relative !important;
   max-width: 1300px;
   margin: auto;
+  min-width: 760px;
 }
 
 #intro {
@@ -472,11 +474,13 @@ label {
   height: max-content;
   border-radius: 4px;
   margin-top: .75em;
+  min-width: 760px;
 }
 
 .viz{
   border-top: 1px solid lightgray;
   background-color: #EEEEEE;
+  min-width: 760px;
 }
 
 .y-axis {
@@ -534,7 +538,7 @@ audio::-webkit-media-controls-panel {
   font-family: 'Proxima Nova';
   width: max-content;
   border-radius: 2px;
-
+  z-index: 100000 !important;
 }
 
 #container2 .tooltip2 {
