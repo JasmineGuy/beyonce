@@ -15,7 +15,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/BDAY.png",
+      src: "/beyonce/assets/BDAY.png",
       alt: "B'Day Album Cover Art"
     },
     name: "B'Day",
@@ -39,7 +39,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/SASHA.png",
+      src: "/beyonce/assets/SASHA.png",
       alt: "I Am Sasha Fierce Album Cover Art"
     },
     name: "I Am...Sasha Fierce",
@@ -63,7 +63,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/4.png",
+      src: "/beyonce/assets/4.png",
       alt: "4 Album Cover Art"
     },
     name: "4",
@@ -76,7 +76,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/Beyonce.png",
+      src: "/beyonce/assets/Beyonce.png",
       alt: "Beyonce Album Cover Art"
     },
     name: "BEYONCE",
@@ -115,7 +115,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/Lemonade.png",
+      src: "/beyonce/assets/Lemonade.png",
       alt: "Lemonade Album Cover Art"
     },
     name: "Lemonade",
@@ -149,7 +149,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/RENAISSANCE.png",
+      src: "/beyonce/assets/RENAISSANCE.png",
       alt: "Renaissance Album Cover Art"
     },
     name: "Renaissance act I",
@@ -218,7 +218,7 @@ data = [
   {
     album: true,
     album_art: {
-      src: "/assets/CARTERS.png",
+      src: "/beyonce/assets/CARTERS.png",
       alt: "Everything Is Love Album Cover Art"
     },
     name: "Everything Is Love",
@@ -265,7 +265,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/DIL.png",
+      src: "/beyonce/assets/DIL.png",
       alt: "Dangerously in Love Album Cover Art"
     },
     name: "Dangerously In Love",
@@ -279,7 +279,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/BDAY.png",
+      src: "/beyonce/assets/BDAY.png",
       alt: "B'Day Album Cover Art"
     },
     name: "B'Day Deluxe Edition",
@@ -304,7 +304,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/SASHA.png",
+      src: "/beyonce/assets/SASHA.png",
       alt: "I Am Sasha Fierce Album Cover Art"
     },
     name: "I Am...Sasha Fierce",
@@ -330,7 +330,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/4.png",
+      src: "/beyonce/assets/4.png",
       alt: "4 Album Cover Art"
     },
     name: "4",
@@ -344,7 +344,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/Beyonce.png",
+      src: "/beyonce/assets/Beyonce.png",
       alt: "Beyonce Album Cover Art"
     },
     name: "Beyonce",
@@ -384,7 +384,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/Lemonade.png",
+      src: "/beyonce/assets/Lemonade.png",
       alt: "Lemonade Album Cover Art"
     },
     name: "Lemonade",
@@ -419,7 +419,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/RENAISSANCE.png",
+      src: "/beyonce/assets/RENAISSANCE.png",
       alt: "Renaissance Album Cover Art"
     },
     name: "Renaissance act I",
@@ -489,7 +489,7 @@ allData = [
   {
     album: true,
     album_art: {
-      src: "/assets/CARTERS.png",
+      src: "/beyonce/assets/CARTERS.png",
       alt: "Everything Is Love Album Cover Art"
     },
     name: "Everything Is Love",
