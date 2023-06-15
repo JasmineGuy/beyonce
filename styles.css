@@ -6,35 +6,35 @@
 /* Proxima */
 @font-face {
   font-family: "Proxima Nova";
-  src: url(/assets/fonts/ProximaNova-Regular.otf) format('opentype');
+  src: url(/beyonce/assets/fonts/ProximaNova-Regular.otf) format('opentype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url(/assets/fonts/ProximaNova-Regular.otf) format('opentype');
+  src: url(/beyonce/assets/fonts/ProximaNova-Regular.otf) format('opentype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url(/assets/fonts/ProximaNova-RegularItalic.otf) format('opentype');
+  src: url(/beyonce/assets/fonts/ProximaNova-RegularItalic.otf) format('opentype');
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url(/assets/fonts/ProximaNova-SemiboldItalic.otf) format('opentype');
+  src: url(/beyonce/assets/fonts/ProximaNova-SemiboldItalic.otf) format('opentype');
   font-weight: 500;
   font-style: italic;
 }
 
 @font-face {
   font-family: "Proxima Nova";
-  src: url(/assets/fonts/ProximaNova-Bold.otf) format('opentype');
+  src: url(/beyonce/assets/fonts/ProximaNova-Bold.otf) format('opentype');
   font-weight: 700;
   font-style: normal;
 }
@@ -43,28 +43,28 @@
 
 @font-face {
   font-family: "Museo Slab";
-  src: url(/assets/fonts/MuseoSlabb.woff) format('woff');
+  src: url(/beyonce/assets/fonts/MuseoSlabb.woff) format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Museo Slab";
-  src: url(/assets/fonts/MuseoSlabb.woff) format('woff');
+  src: url(/beyonce/assets/fonts/MuseoSlabb.woff) format('woff');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Museo Bold";
-  src: url(/assets/fonts/MuseoSlabBold.woff) format('woff');
+  src: url(/beyonce/assets/fonts/MuseoSlabBold.woff) format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Museo Bold";
-  src: url(/assets/fonts/MuseoSlabBold.woff) format('woff');
+  src: url(/beyonce/assets/fonts/MuseoSlabBold.woff) format('woff');
   font-weight: 600;
   font-style: normal;
 }
