@@ -81,7 +81,7 @@ body{
 }
 
 section {
-  padding: 2.5em;
+  padding: 1em;
   position: relative !important;
   max-width: 1300px;
   margin: auto;
@@ -260,7 +260,6 @@ section {
 .card {
   background-color: #F3B54A;
   width: 16%;
-  /* height: 100%; */
   border-radius: 2px;
   padding: 1em 1em 1.5em;
   font-family: 'Proxima Nova';
@@ -269,6 +268,25 @@ section {
   display: grid;
   grid-template-rows: 3em 60px 5em;
   min-width: 150px;
+}
+
+.card2 {
+  background-color: #F3B54A;
+  width: 16%;
+  border-radius: 2px;
+  padding: 1em 1em 1.5em;
+  font-family: 'Proxima Nova';
+  font-size: 16px;
+  color: #332D44;
+  display: grid;
+  grid-template-rows: 3em 1.5em 65px 4em;
+  min-width: 150px;
+}
+
+.card-intro {
+  display: flex;
+  align-self: flex-end;
+  /* border: 1px solid red; */
 }
 
 .outer-wrapper {
@@ -331,6 +349,8 @@ section {
   font-family: 'Proxima Nova';
   font-weight: 400;
   padding: 1em 0;
+  width: 60%;
+  margin-top: 1em;
 }
 
 @media (max-width: 1090px) {
