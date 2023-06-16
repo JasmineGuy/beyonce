@@ -583,7 +583,6 @@ audio::-webkit-media-controls-panel {
 
 #container4 .tooltip4 {
   background: #fff;
-  /* bottom: 100%; */
   display: block;
   opacity: 0;
   padding: 10px;
@@ -602,17 +601,17 @@ audio::-webkit-media-controls-panel {
 }
 
 .tooltip .profile {
-width: 100px;
-height: 100px;
-border: 1px solid #000;
-border-radius: 4px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  border-radius: 4px;
 }
 
 .tooltip2 .profile {
-width: 100px;
-height: 100px;
-border: 1px solid #000;
-border-radius: 4px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  border-radius: 4px;
 }
 
 .center:hover {
@@ -630,7 +629,7 @@ border-radius: 4px;
 }
 
 .ring {
-stroke-width: 2px;
+  stroke-width: 2px;
 }
 
 .ring:hover {
@@ -687,13 +686,13 @@ stroke-width: 2px;
 }
 
 .pulsing .center {
-  animation: zoom-in-zoom-out 500ms infinite;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  stroke: rgb(146 148 215)!important;
+  stroke-opacity: .5 !important;
+  animation: pulse-me-center 500ms ease-in-out infinite !important;
 }
 
 .pulsing .altCenter {
-  animation: zoom-in-zoom-out 500ms infinite;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  animation: pulse-me-center 500ms linear infinite;
 }
 
 .reverb {
@@ -702,9 +701,7 @@ stroke-width: 2px;
   position: absolute;
   overflow: visible;
   fill: none;
-  /* transform: scale(0.5); */
   animation: pulse-me 500ms linear infinite;
-  /* stroke-opacity: .6; */
   stroke-width: 5px;
   box-shadow: 4px 4px 4px lightgray;
 }
@@ -717,25 +714,37 @@ footer {
 
 @keyframes pulse-me{
   0%{
-    /* transform: scale(.75); */
-    /* stroke-opacity: 0; */
-    stroke-width: 2;
+    stroke-width: 2px;
   }
   50%{
-    /* stroke-opacity: 0.8; */
-    stroke-width: 6;
+    stroke-width: 4px;
+  }
+  70%{
+    stroke-width: 6px;
+  }
+  100%{
+    stroke-width: 4px;
+  }
+}
+
+@keyframes pulse-me-center{
+  0%{
+    stroke-width: 2px;
+    stroke-opacity: .5;
+  }
+  50%{
+    stroke-width: 6px;
+    stroke-opacity: .5;
 
   }
   70%{
-    /* transform: scale(1); */
+    stroke-width: 8px;
+    stroke-opacity: 0.5;
 
-    /* stroke-opacity: 0.6; */
-    stroke-width: 8;
   }
   100%{
-    /* transform: scale(1.25); */
-    /* stroke-opacity: 0; */
-    stroke-width: 6;
+    stroke-width: 6px;
+    stroke-opacity: 1;
 
   }
 }
@@ -748,7 +757,7 @@ footer {
   100% { transform: translateY(0) }
 }
 
-  @keyframes zoom-in-zoom-out {
+  /* @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(.8, .8);
   }
@@ -758,7 +767,7 @@ footer {
   100% {
     transform: scale(1.2, 1.2);
   }
-}
+} */
 
 .quarter-note,
 .quarter-note-rap {
@@ -799,7 +808,6 @@ footer {
 .quarter-note-rap::before {
   position: absolute;
   content: "";
-  /* transform: rotatez(-100deg); */
   border-radius: 50%;
 }
 

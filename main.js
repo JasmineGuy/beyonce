@@ -815,7 +815,6 @@ appearance
   .style("opacity", 0.6)
   .attr("class", (d) => d.rap ==="TRUE" ? "center" : "music")
   .on("mouseenter", (evt, d) => {
-    console.log('🫶🏼 🧐 .on 🧐 evt, d:', evt, d);
     const tooltipText4 = `
       <strong> ${d.song}</strong>
       <span>Peak Position: ${d.peak_position}</span>
