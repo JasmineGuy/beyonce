@@ -24,12 +24,14 @@ data = [
       {
         ring: true,
         song: "Upgrade U",
-        src: "https://p.scdn.co/mp3-preview/a95c5adcb3631413ba7af362d21d580101b0f519?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/a95c5adcb3631413ba7af362d21d580101b0f519?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "B'Day",
       },
       {
         ring: true,
         song: "Kitty Kat",
-        src: "https://p.scdn.co/mp3-preview/7723debb08f213ac1480d0ad97804bc86021a0ff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/7723debb08f213ac1480d0ad97804bc86021a0ff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "B'Day",
       },
     ],
     popularity: 71,
@@ -48,12 +50,14 @@ data = [
       {
         ring: true,
         song: "Diva",
-        src: "https://p.scdn.co/mp3-preview/55576675768c9261d271137bcabafe9b4deef282?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/55576675768c9261d271137bcabafe9b4deef282?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "I Am...Sasha Fierce",
       },
       {
         ring: true,
         song: "Video Phone",
-        src: "https://p.scdn.co/mp3-preview/8a23f7f5ff3a5987b0bf5081323b03c33de30368?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8a23f7f5ff3a5987b0bf5081323b03c33de30368?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "I Am...Sasha Fierce",
       }
     ],
     popularity: 70,
@@ -85,27 +89,32 @@ data = [
       {
         ring: true,
         song: "Haunted",
-        src: "https://p.scdn.co/mp3-preview/5b700dfb60dac99625bc86b56e00f0097aafaa1e?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/5b700dfb60dac99625bc86b56e00f0097aafaa1e?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "BEYONCE",
       },
       {
         ring: true,
         song: "No Angel",
-        src: "https://p.scdn.co/mp3-preview/346b3d05bd9f2edc9d7bb6a8dd241b375d6a3e11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/346b3d05bd9f2edc9d7bb6a8dd241b375d6a3e11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "BEYONCE",
       },
       {
         ring: true,
         song: "Partition",
-        src: "https://p.scdn.co/mp3-preview/7b25e7518ee2a36ec5dbdcdac4c56aa6275000d9?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/7b25e7518ee2a36ec5dbdcdac4c56aa6275000d9?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "BEYONCE",
       },
       {
         ring: true,
         song: "Flawless Remix (Ft. Nicki Minaj)",
-        src: "https://p.scdn.co/mp3-preview/4dff171430062c1c6f416bc762558a3ae2416020?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/4dff171430062c1c6f416bc762558a3ae2416020?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "BEYONCE",
       },
       {
         ring: true,
         song: "7/11",
-        src: "https://p.scdn.co/mp3-preview/ca4703c74d757544ad3e9f5b3e9462fccf2e1416?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/ca4703c74d757544ad3e9f5b3e9462fccf2e1416?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "BEYONCE",
       },
     ],
     popularity: 76,
@@ -124,22 +133,26 @@ data = [
       {
         ring: true,
         song: "Hold Up",
-        src: "https://p.scdn.co/mp3-preview/0c3f69a37e856f95af1ab4e8df473a2b4c0b4ba1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/0c3f69a37e856f95af1ab4e8df473a2b4c0b4ba1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Sorry",
-        src: "https://p.scdn.co/mp3-preview/2814899f63df225628bd10cea999fcc7711a85c1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/2814899f63df225628bd10cea999fcc7711a85c1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Formation",
-        src: "https://p.scdn.co/mp3-preview/35278819159872f693830f15bbb0b9a51abbcc5a?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/35278819159872f693830f15bbb0b9a51abbcc5a?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Sorry - Original Demo",
-        src: "https://p.scdn.co/mp3-preview/c7eee92b851190cac75e1e8240c27ef67dd5470d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/c7eee92b851190cac75e1e8240c27ef67dd5470d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       }
     ],
     popularity: 75,
@@ -158,57 +171,68 @@ data = [
       {
         ring: true,
         song: "COZY",
-        src: "https://p.scdn.co/mp3-preview/fad8289d0e88193f67d7fd584aed5459ba4a1e60?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/fad8289d0e88193f67d7fd584aed5459ba4a1e60?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "ALIEN SUPERSTAR",
-        src: "https://p.scdn.co/mp3-preview/bb52d4ac31696cec073642d2a6697930d01d3bdb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/bb52d4ac31696cec073642d2a6697930d01d3bdb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "ENERGY",
-        src: "https://p.scdn.co/mp3-preview/0f9628c558c22758c3b8ab26983a4c5df4a877c7?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/0f9628c558c22758c3b8ab26983a4c5df4a877c7?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "BREAK MY SOUL",
-        src: "https://p.scdn.co/mp3-preview/a5a156200e1db3d7ab454a87ad3058400157c6fe?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/a5a156200e1db3d7ab454a87ad3058400157c6fe?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "CHURCH GIRL",
-        src: "https://p.scdn.co/mp3-preview/78e94a4cf8b569f06dcdae9ff1fa5ba06b1c71c2?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/78e94a4cf8b569f06dcdae9ff1fa5ba06b1c71c2?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "MOVE (feat. Grace Jones & Tems)",
-        src: "https://p.scdn.co/mp3-preview/8f6fcdf4b8d62381c750bbc5ee9ea250e707fc22?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8f6fcdf4b8d62381c750bbc5ee9ea250e707fc22?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "HEATED",
-        src: "https://p.scdn.co/mp3-preview/fcb44c7d9c33201cef6aaca4db3465d2b3b39f11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/fcb44c7d9c33201cef6aaca4db3465d2b3b39f11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "THIQUE",
-        src: "https://p.scdn.co/mp3-preview/3f42ef58a3c159e88a66c40733b6b5768b154c10?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/3f42ef58a3c159e88a66c40733b6b5768b154c10?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "AMERICA HAS A PROBLEM",
-        src: "https://p.scdn.co/mp3-preview/bfc8826fd23db6b055a4f1ec7ba76337e58d679c?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/bfc8826fd23db6b055a4f1ec7ba76337e58d679c?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "PURE/HONEY",
-        src: "https://p.scdn.co/mp3-preview/8c3ee4f874f59980d83359e66e53519ec288d44d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8c3ee4f874f59980d83359e66e53519ec288d44d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "SUMMER RENAISSANCE",
-        src: "https://p.scdn.co/mp3-preview/80ad0f8ded67a0e52286c4f50f847c73e7f544d6?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/80ad0f8ded67a0e52286c4f50f847c73e7f544d6?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
     ],
     popularity: 90,
@@ -227,32 +251,38 @@ data = [
       {
         ring: true,
         song: "APESHIT",
-        src: "https://p.scdn.co/mp3-preview/5995feaa7c72c09ae621e4d7e6d9dbe7514c3ca0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/5995feaa7c72c09ae621e4d7e6d9dbe7514c3ca0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "BOSS",
-        src: "https://p.scdn.co/mp3-preview/d64f465deab8a6454dbb315db60df945d577f193?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/d64f465deab8a6454dbb315db60df945d577f193?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "NICE",
-        src: "https://p.scdn.co/mp3-preview/171a2125c5b4a5c4251278989f6f6b10fbb852b0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/171a2125c5b4a5c4251278989f6f6b10fbb852b0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "713",
-        src: "https://p.scdn.co/mp3-preview/0c7f08b6a84a8956b954de4ef798158ed7cd74eb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/0c7f08b6a84a8956b954de4ef798158ed7cd74eb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "BLACK EFFECT",
-        src: "https://p.scdn.co/mp3-preview/2553c933d0fa538ad835f73653aa90bfe5379699?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/2553c933d0fa538ad835f73653aa90bfe5379699?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "LOVEHAPPY",
-        src: "https://p.scdn.co/mp3-preview/d7f2c74f5493d8d82925509e2b2eb56e4d0babd0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/d7f2c74f5493d8d82925509e2b2eb56e4d0babd0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       }
     ],
     popularity: 59,
@@ -289,12 +319,14 @@ allData = [
       {
         ring: true,
         song: "Upgrade U",
-        src: "https://p.scdn.co/mp3-preview/a95c5adcb3631413ba7af362d21d580101b0f519?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/a95c5adcb3631413ba7af362d21d580101b0f519?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "B'Day Deluxe Edition",
       },
       {
         ring: true,
         song: "Kitty Kat",
-        src: "https://p.scdn.co/mp3-preview/7723debb08f213ac1480d0ad97804bc86021a0ff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/7723debb08f213ac1480d0ad97804bc86021a0ff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "B'Day Deluxe Edition",
       }
     ],
     popularity: 71,
@@ -314,12 +346,14 @@ allData = [
       {
         ring: true,
         song: "Diva",
-        src: "https://p.scdn.co/mp3-preview/55576675768c9261d271137bcabafe9b4deef282?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/55576675768c9261d271137bcabafe9b4deef282?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "I Am...Sasha Fierce",
       },
       {
         ring: true,
         song: "Video Phone",
-        src: "https://p.scdn.co/mp3-preview/8a23f7f5ff3a5987b0bf5081323b03c33de30368?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8a23f7f5ff3a5987b0bf5081323b03c33de30368?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "I Am...Sasha Fierce",
       }
     ],
     popularity: 70,
@@ -354,27 +388,32 @@ allData = [
       {
         ring: true,
         song: "Haunted",
-        src: "https://p.scdn.co/mp3-preview/5b700dfb60dac99625bc86b56e00f0097aafaa1e?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/5b700dfb60dac99625bc86b56e00f0097aafaa1e?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Beyonce",
       },
       {
         ring: true,
         song: "No Angel",
-        src: "https://p.scdn.co/mp3-preview/346b3d05bd9f2edc9d7bb6a8dd241b375d6a3e11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/346b3d05bd9f2edc9d7bb6a8dd241b375d6a3e11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Beyonce",
       },
       {
         ring: true,
         song: "Partition",
-        src: "https://p.scdn.co/mp3-preview/7b25e7518ee2a36ec5dbdcdac4c56aa6275000d9?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/7b25e7518ee2a36ec5dbdcdac4c56aa6275000d9?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Beyonce",
       },
       {
         ring: true,
         song: "Flawless Remix (Ft. Nicki Minaj)",
-        src: "https://p.scdn.co/mp3-preview/4dff171430062c1c6f416bc762558a3ae2416020?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/4dff171430062c1c6f416bc762558a3ae2416020?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Beyonce",
       },
       {
         ring: true,
         song: "7/11",
-        src: "https://p.scdn.co/mp3-preview/ca4703c74d757544ad3e9f5b3e9462fccf2e1416?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/ca4703c74d757544ad3e9f5b3e9462fccf2e1416?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Beyonce",
       },
     ],
     popularity: 76,
@@ -394,22 +433,26 @@ allData = [
       {
         ring: true,
         song: "Hold Up",
-        src: "https://p.scdn.co/mp3-preview/0c3f69a37e856f95af1ab4e8df473a2b4c0b4ba1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/0c3f69a37e856f95af1ab4e8df473a2b4c0b4ba1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Sorry",
-        src: "https://p.scdn.co/mp3-preview/2814899f63df225628bd10cea999fcc7711a85c1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/2814899f63df225628bd10cea999fcc7711a85c1?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Formation",
-        src: "https://p.scdn.co/mp3-preview/35278819159872f693830f15bbb0b9a51abbcc5a?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/35278819159872f693830f15bbb0b9a51abbcc5a?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       },
       {
         ring: true,
         song: "Sorry - Original Demo",
-        src: "https://p.scdn.co/mp3-preview/c7eee92b851190cac75e1e8240c27ef67dd5470d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/c7eee92b851190cac75e1e8240c27ef67dd5470d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Lemonade",
       }
     ],
     popularity: 75,
@@ -429,57 +472,68 @@ allData = [
       {
         "ring": true,
         "song": "COZY",
-        src: "https://p.scdn.co/mp3-preview/fad8289d0e88193f67d7fd584aed5459ba4a1e60?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/fad8289d0e88193f67d7fd584aed5459ba4a1e60?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "ALIEN SUPERSTAR",
-        src: "https://p.scdn.co/mp3-preview/bb52d4ac31696cec073642d2a6697930d01d3bdb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/bb52d4ac31696cec073642d2a6697930d01d3bdb?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "ENERGY (feat. BEAM)",
-        src: "https://p.scdn.co/mp3-preview/0f9628c558c22758c3b8ab26983a4c5df4a877c7?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/0f9628c558c22758c3b8ab26983a4c5df4a877c7?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "BREAK MY SOUL",
-        src: "https://p.scdn.co/mp3-preview/a5a156200e1db3d7ab454a87ad3058400157c6fe?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/a5a156200e1db3d7ab454a87ad3058400157c6fe?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "CHURCH GIRL",
-        src: "https://p.scdn.co/mp3-preview/78e94a4cf8b569f06dcdae9ff1fa5ba06b1c71c2?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/78e94a4cf8b569f06dcdae9ff1fa5ba06b1c71c2?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "MOVE (feat. Grace Jones & Tems)",
-        src: "https://p.scdn.co/mp3-preview/8f6fcdf4b8d62381c750bbc5ee9ea250e707fc22?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8f6fcdf4b8d62381c750bbc5ee9ea250e707fc22?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         "ring": true,
         "song": "HEATED",
-        src: "https://p.scdn.co/mp3-preview/fcb44c7d9c33201cef6aaca4db3465d2b3b39f11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/fcb44c7d9c33201cef6aaca4db3465d2b3b39f11?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "THIQUE",
-        src: "https://p.scdn.co/mp3-preview/3f42ef58a3c159e88a66c40733b6b5768b154c10?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/3f42ef58a3c159e88a66c40733b6b5768b154c10?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "AMERICA HAS A PROBLEM",
-        src: "https://p.scdn.co/mp3-preview/57a7f894235d96e86b911ac3f20b55f6aad6b106?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/57a7f894235d96e86b911ac3f20b55f6aad6b106?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "PURE/HONEY",
-        src: "https://p.scdn.co/mp3-preview/8c3ee4f874f59980d83359e66e53519ec288d44d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/8c3ee4f874f59980d83359e66e53519ec288d44d?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       },
       {
         ring: true,
         song: "SUMMER RENAISSANCE",
-        src: "https://p.scdn.co/mp3-preview/80ad0f8ded67a0e52286c4f50f847c73e7f544d6?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/80ad0f8ded67a0e52286c4f50f847c73e7f544d6?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Renaissance act I",
       }
     ],
     popularity: 90,
@@ -499,32 +553,38 @@ allData = [
       {
         ring: true,
         song: "APESHIT",
-        src: "https://p.scdn.co/mp3-preview/5995feaa7c72c09ae621e4d7e6d9dbe7514c3ca0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/5995feaa7c72c09ae621e4d7e6d9dbe7514c3ca0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "BOSS",
-        src: "https://p.scdn.co/mp3-preview/bd653f7b6851bed7437cdcd4f080c449cfd01554?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/bd653f7b6851bed7437cdcd4f080c449cfd01554?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "NICE",
-        src: "https://p.scdn.co/mp3-preview/171a2125c5b4a5c4251278989f6f6b10fbb852b0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/171a2125c5b4a5c4251278989f6f6b10fbb852b0?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "713",
-        src: "https://p.scdn.co/mp3-preview/2974c84cfdb0608381b1edf2a70ba0abae66edff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/2974c84cfdb0608381b1edf2a70ba0abae66edff?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "BLACK EFFECT",
-        src: "https://p.scdn.co/mp3-preview/2553c933d0fa538ad835f73653aa90bfe5379699?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/2553c933d0fa538ad835f73653aa90bfe5379699?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       },
       {
         ring: true,
         song: "LOVEHAPPY",
-        src: "https://p.scdn.co/mp3-preview/22cbcafce78f4d6cea64cda2601e6a7bf15b0503?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook"
+        src: "https://p.scdn.co/mp3-preview/22cbcafce78f4d6cea64cda2601e6a7bf15b0503?cid=162b7dc01f3a4a2ca32ed3cec83d1e02&utm_medium=facebook",
+        name: "Everything Is Love",
       }
     ],
     popularity: 59,

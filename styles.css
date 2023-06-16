@@ -632,9 +632,13 @@ audio::-webkit-media-controls-panel {
   stroke-width: 2px;
 }
 
-.ring:hover {
+.cluster:hover {
   cursor: pointer;
+}
+
+.cluster:hover .ring{
   stroke-width: 4px;
+  pointer-events: none;
 }
 
 .music:hover {
@@ -677,13 +681,7 @@ audio::-webkit-media-controls-panel {
   animation: tilt-shaking .75s infinite;
 }
 
-.dot .pulsing {
-  position: absolute;
-}
 
-.albums .pulsing {
-  position: absolute;
-}
 
 .pulsing .center {
   stroke: rgb(146 148 215)!important;
@@ -756,18 +754,6 @@ footer {
   75% { transform: translateY(7px) }
   100% { transform: translateY(0) }
 }
-
-  /* @keyframes zoom-in-zoom-out {
-  0% {
-    transform: scale(.8, .8);
-  }
-  50% {
-    transform: scale(1, 1);
-  }
-  100% {
-    transform: scale(1.2, 1.2);
-  }
-} */
 
 .quarter-note,
 .quarter-note-rap {

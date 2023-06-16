@@ -51,9 +51,11 @@ const clicked = (event, d) => {
   // album animation behavior
   if (d.ring) {
     playing.classed("playing", false)
-    const ring = event.target
-    ring.classList.add("reverb")
-    selected = event.target.parentNode
+    let test = document.getElementById(`${d.song}-ring`)
+    const ring = event.target.nextSibling
+    test.classList.add("reverb")
+    let test2 = document.getElementById(`${d.name}`)
+    selected = test2
     selected.classList.add("pulsing")
 
     if (d.src != "" && player.src != d.src) {
@@ -188,7 +190,10 @@ const drawAlbums = (refinedData, metric) => {
     .data(refinedData, (d) => d.name)
     .join(
       (enter) => {
-        const g = enter.append("g").attr("class", "dot").attr("opacity", 0);
+        const g = enter.append("g").attr("class", "dot")
+          .attr("opacity", 0)
+          .attr("id", (d) => `${d.name}`);
+
         g.transition().duration(duration).attr("opacity", 1);
 
         //apply x, y positions to the whole group as opposed to the individual circle/rings
@@ -197,6 +202,7 @@ const drawAlbums = (refinedData, metric) => {
         // create initial plot points for albums
         g.append("circle")
           .attr("class", "center")
+          .attr("id", (d) => `${d.name}-center`)
           .attr("r", (d) => R)
           .style("fill", plotColor)
           .on("mouseover", (evt, d) => {
@@ -215,10 +221,43 @@ const drawAlbums = (refinedData, metric) => {
           })
           .on("mouseout", () => tooltip.text("").style("opacity", 0));
 
-        //creating rings
-        g.selectAll("circle.ring")
+        //creating ring cluster to append wrapper and ring
+        const tooltipCluster = g.selectAll("g.cluster")
           .data((d) => d.info)
-          .join("circle")
+          .join("g")
+          .attr('class', 'cluster')
+          .attr("id", (d) => `${d.song}-cluster`)
+
+          tooltipCluster.append('circle')
+            .attr("r", (d, i) => 10 * i + 20)
+            .style("stroke", '#eeeeee')
+            .style("stroke-width", '10px')
+            .style("fill", "none")
+            .attr("class", "ring-bearer")
+            .attr("id", (d) => `${d.song}-ring-bearer`)
+            .on("mousemove", (evt, d) => {
+              const [mx, my] = d3.pointer(evt);
+              const tooltipText = `<strong> Track: ${d.song}</strong>`;
+              tooltip
+                .style("top", `${evt.layerY}px`)
+                .style("left", `${evt.layerX + 16}px`)
+                .style("opacity", 1)
+                .style("color", "#000")
+                .html(tooltipText);
+            })
+            .on("mouseout", () =>
+              tooltip
+                .text("")
+                .style("background", "white")
+                .style("color", "#000")
+                .style("opacity", 0)
+            )
+            .on("click", clicked);
+
+          // finally creating rings
+         tooltipCluster.append('circle')
+          .data((d) => d.info)
+          .attr("id", (d) => `${d.song}-ring`)
           .attr("r", (d, i) => 10 * i + 20)
           .style("stroke", plotColor)
           .style("fill", "none")
@@ -269,12 +308,57 @@ const drawAlbums = (refinedData, metric) => {
   );
 }
 
+
+const clickedAlt = (event, d) => {
+  const currentRing = document.querySelector(".reverb")
+  const currentAlbum = document.querySelector(".pulsing")
+  let selected;
+  const playing = d3.selectAll(".playing")
+
+  // album animation behavior
+  if (d.ring) {
+    playing.classed("playing", false)
+    let test = document.getElementById(`${d.song}-ring2`)
+    const ring = event.target.nextSibling
+    test.classList.add("reverb")
+    let test2 = document.getElementById(`${d.name}2`)
+    selected = test2
+    selected.classList.add("pulsing")
+    if (d.src != "" && player.src != d.src) {
+      player.src = d.src;
+      player.play();
+    } else {
+      player.src = "";
+      selected.classList.remove("pulsing");
+      ring.classList.remove("reverb")
+      player.pause();
+    }
+  } else { // song animation behavior
+    playing.classed("playing", false)
+    selected = event.target.parentNode
+    selected.classList.add("playing")
+    if (d.src != "" && player.src != d.src) {
+      player.src = d.src;
+      player.play();
+    } else {
+      player.src = "";
+      selected.classList.remove("playing")
+      player.pause();
+    }
+  }
+  currentRing && currentRing.classList.remove("reverb")
+  if (currentAlbum && currentAlbum !== selected) {
+    currentAlbum.classList.remove("pulsing")
+  }
+  event.stopPropagation();
+};
+
 // Viz #2
 const all = d3.select("#container2")
   .append("svg").attr("class", "viz")
-    .attr("viewBox", `0 0 1500 750`)
+  .attr("viewBox", `0 0 1500 750`)
   .append("g")
-    .attr("transform",`translate(${margin.left}, ${margin.top})`);
+  .attr("transform",`translate(${margin.left}, ${margin.top})`);
 
 const dates2 = allData.map((elem) => getDate(elem.release_date))
 const pops2 = allData.map((elem) => elem.popularity)
@@ -372,7 +456,11 @@ const drawMixed = (updatedData, metric) => {
     .data(updatedData, (d) => d.name)
     .join(
       (enter) => {
-        const albums = enter.append("g").attr("class", "albums").attr("opacity", 0);
+        const albums = enter.append("g")
+          .attr("opacity", 0)
+          .attr("class", "albums")
+          .attr("id", (d) => `${d.name}2`)
+
         albums.transition().duration(duration).attr("opacity", 1);
 
         //apply x, y positions to the whole group as opposed to the individual circle/rings
@@ -381,6 +469,7 @@ const drawMixed = (updatedData, metric) => {
         // create initial plot points for albums
         albums.append("circle")
           .attr("class", (d) => !d.album ? "music" : "center")
+          .attr("id", (d) => `${d.name}-center2`)
           .attr("r", (d) => d.album ? R : 8)
           .style("fill", (d) => !d.album ? "#DF703C" : plotColor)
           .style("opacity",  (d) => d.album ? 1 : 0.6)
@@ -403,15 +492,21 @@ const drawMixed = (updatedData, metric) => {
           .on("mouseout", () => tooltip2.text("").style("opacity", 0))
           .on("click", clicked);
 
-        // //creating rings
-        albums.selectAll("circle.ring")
+        //creating ring cluster to append wrapper and ring
+        const cluster = albums.selectAll("g.cluster")
           .data((d) => d.info)
-          .join("circle")
+          .join("g")
+          .attr("class", "cluster")
+          .attr("id", (d) => `${d.song}-cluster2`)
+
+        cluster.append('circle')
           .attr("r", (d, i) => 10 * i + 20)
-          .style("stroke", plotColor)
+          .style("stroke", '#eeeeee')
+          .style("stroke-width", '10px')
           .style("fill", "none")
-          .attr("class", "ring")
-          .on("mouseenter", (evt, d) => {
+          .attr("class", "ring-bearer")
+          .attr("id", (d) => `${d.song}-ring-bearer2`)
+          .on("mousemove", (evt, d) => {
             const tooltipText2 = `<strong> Track: ${d.song}</strong>`;
             tooltip2
               .style("top", `${evt.layerY}px`)
@@ -426,7 +521,34 @@ const drawMixed = (updatedData, metric) => {
               .style("color", plotColor)
               .style("opacity", 0)
           )
-          .on("click", clicked);
+          .on("click", clickedAlt);
+
+        // finally creating rings
+         cluster.append('circle')
+          .data((d) => d.info)
+          .attr("id", (d) => `${d.song}-ring2`)
+          .attr("r", (d, i) => 10 * i + 20)
+          .style("stroke", plotColor)
+          .style("fill", "none")
+          .attr("class", "ring")
+          .on("mousemove", (evt, d) => {
+            const [mx, my] = d3.pointer(evt);
+            const tooltipText = `<strong> Track: ${d.song}</strong>`;
+            tooltip
+              .style("top", `${evt.layerY}px`)
+              .style("left", `${evt.layerX + 16}px`)
+              .style("opacity", 1)
+              .style("color", "#000")
+              .html(tooltipText);
+          })
+          .on("mouseout", () =>
+            tooltip
+              .text("")
+              .style("background", "white")
+              .style("color", "#000")
+              .style("opacity", 0)
+          )
+          .on("click", clickedAlt);
 
         albums.append('line')
           .attr("class", "stem")
