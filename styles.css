@@ -241,8 +241,6 @@ section {
   width: 100%;
   height: 500px;
   overflow: auto;
-  /* margin-bottom: 4em; */
-  /* height: fit-content; */
 }
 
 .cards2 {
@@ -252,9 +250,7 @@ section {
   justify-content: flex-start;
   background-color: #EEEEEE;
   width: 100%;
-  /* margin-bottom: 4em; */
   gap: 1.25em;
-  /* height: fit-content; */
 }
 
 
@@ -288,7 +284,6 @@ section {
 .card-intro {
   display: flex;
   align-self: flex-end;
-  /* border: 1px solid red; */
 }
 
 .outer-wrapper {
@@ -309,6 +304,7 @@ section {
   .card {
     margin: .5em 0;
     height: max-content;
+    font-size: 15px;
   }
 
   .stat {
@@ -335,9 +331,9 @@ section {
 
 .highlight-alt {
   font-size: 80px;
-   font-family: 'Museo Slab';
- font-weight: 500;
- margin: 0 auto;
+  font-family: 'Museo Slab';
+  font-weight: 500;
+  margin: 0 auto;
 }
 
 .facts {
@@ -813,3 +809,41 @@ footer {
   stroke: gray;
   stroke-dasharray: 4, 5;
 }
+
+/* .bio {
+  display: flex;
+  height: 200px;
+  width:100%;
+  gap: 2em;
+  justify-content: center;
+}
+
+.photo-container {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.picture {
+  background-image: url('/beyonce/assets/test.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 65%;
+  min-width: 175px;
+  height: 100%;
+  max-height: 200px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.text-bio {
+  line-height: 24px;
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-size: 16px;
+  width: 80%;
+} */
