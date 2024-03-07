@@ -4,7 +4,7 @@ A fun data visualization that allows users to bask in the glory that is Beyonce 
 
 ## App Functionality
 
-- Compare Beyonce albums by sportify popularity, grammy wins and rap content
+- Compare Beyonce albums and singles by spotify popularity, grammy wins, billboard success and rap content
 
 
 
